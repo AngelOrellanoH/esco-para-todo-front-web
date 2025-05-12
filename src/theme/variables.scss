@@ -1,0 +1,69 @@
+/* src/theme/variables.scss */
+
+// 1. Importa los archivos de tema (esto aplica los tokens de Material)
+@import './light.css';
+@import './dark.css';
+@import './light-hc.css';
+@import './dark-hc.css';
+@import './light-mc.css';
+@import './dark-mc.css';
+
+// 2. Fuente y configuración general
+:root {
+  --ion-font-family: 'Roboto', sans-serif;
+}
+
+// 3. Aplica los tokens de Material a las variables de Ionic
+.light, .dark, .light-high-contrast, .dark-high-contrast, .light-medium-contrast, .dark-medium-contrast {
+  --ion-color-primary: var(--md-sys-color-primary);
+  --ion-color-primary-contrast: var(--md-sys-color-on-primary);
+  --ion-color-secondary: var(--md-sys-color-secondary);
+  --ion-color-secondary-contrast: var(--md-sys-color-on-secondary);
+  --ion-color-tertiary: var(--md-sys-color-tertiary);
+  --ion-color-tertiary-contrast: var(--md-sys-color-on-tertiary);
+  --ion-color-success: var(--md-sys-color-primary-fixed);
+  --ion-color-warning: var(--md-sys-color-tertiary-fixed);
+  --ion-color-danger: var(--md-sys-color-error);
+  --ion-color-danger-contrast: var(--md-sys-color-on-error);
+  --ion-color-medium: var(--md-sys-color-outline);
+  --ion-color-light: var(--md-sys-color-surface-container-low);
+
+  --ion-background-color: var(--md-sys-color-background);
+  --ion-text-color: var(--md-sys-color-on-background);
+  --ion-toolbar-background: var(--md-sys-color-surface-container-high);
+  --ion-toolbar-color: var(--md-sys-color-on-surface);
+  --ion-item-background: var(--md-sys-color-surface);
+  --ion-item-color: var(--md-sys-color-on-surface);
+}
+
+ion-button {
+  --background: var(--md-sys-color-primary);
+  --color: var(--md-sys-color-on-primary);
+  --background-hover: var(--md-sys-color-primary-fixed-dim);
+  --color-hover: var(--md-sys-color-on-primary-fixed);
+  --border-radius: 8px;
+  font-weight: 500;
+}
+
+ion-input, ion-select, ion-textarea {
+  --background: var(--md-sys-color-surface-container);
+  --color: var(--md-sys-color-on-surface);
+  --placeholder-color: var(--md-sys-color-outline);
+  --highlight-color-focused: var(--md-sys-color-primary);
+  --border-radius: 6px;
+}
+
+ion-checkbox {
+  --background: var(--md-sys-color-surface);
+  --border-color: var(--md-sys-color-outline);
+  --checkmark-color: var(--md-sys-color-on-primary);
+  --checked-background: var(--md-sys-color-primary);
+}
+
+ion-label {
+  color: var(--md-sys-color-on-surface);
+}
+
+body {
+  font-family: var(--ion-font-family);
+}
