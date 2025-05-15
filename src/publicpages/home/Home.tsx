@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import './Home.css';
-import Navbar from '../components/Navbar'; 
+import Navbar from '../../components/Navbar'; 
 
 /*
   Componente funcional Home que representa la página de inicio de la aplicación.

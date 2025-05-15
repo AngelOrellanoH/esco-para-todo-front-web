@@ -11,8 +11,8 @@ import {
   IonButton,
   IonAlert,
 } from '@ionic/react';
-import { loginUsuario } from '../services/usuario-service'; 
-import Navbar from '../components/Navbar'; 
+import { loginUsuario } from '../../services/usuario-service'; 
+import Navbar from '../../components/Navbar'; 
 
 /*
   Componente funcional LoginPage que permite a los usuarios iniciar sesión en la aplicación.

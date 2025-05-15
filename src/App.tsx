@@ -8,9 +8,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-import Home from './pages/Home';
-import RegistroUsuario from './pages/RegistroUsuario';
-import LoginPage from './pages/LoginUsuario'; 
+import Home from './publicpages/home/Home';
+import RegistroUsuario from './publicpages/registro/RegistroUsuario';
+import LoginPage from './publicpages/login/LoginUsuario'; 
 
 /*
   Importaciones de los estilos CSS principales requeridos para que los componentes de Ionic funcionen correctamente.

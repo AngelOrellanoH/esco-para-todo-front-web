@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonItem, IonLabel, IonInput, IonButton, IonAlert } from '@ionic/react';
-import { registrarUsuario } from '../services/usuario-service';
-import Navbar from '../components/Navbar';
+import { registrarUsuario } from '../../services/usuario-service';
+import Navbar from '../../components/Navbar';
 
 /*
   Componente funcional RegistroUsuario que permite a los nuevos usuarios registrarse en la aplicación.
