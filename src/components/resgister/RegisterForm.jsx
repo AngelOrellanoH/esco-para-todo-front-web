@@ -4,45 +4,63 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { setRegister } from "@/services/register-service"
 
 
 const RegisterForm = () => {
     const navigate = useNavigate()
+    
+    const [isCorrectPassword, setIsCorrectPassword] = useState(null)
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [error, setError] = useState(null)
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         email: "",
         password: "",
         confirmPassword: "",
-        userType: "",
-        agreeTerms: false,
     })
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target
+        const { name, value } = e.target
         setFormData({
         ...formData,
-        [name]: type === "checkbox" ? checked : value,
+        [name]: value,
         })
+        if(name === "password" || name === "confirmPassword"){
+            setIsCorrectPassword(null)
+        }
     }
 
-    const handleSelectChange = (value) => {
-        setFormData({
-        ...formData,
-        userType: value,
-        })
-    }
-
-    const handleCheckboxChange = (checked) => {
-        setFormData({
-        ...formData,
-        agreeTerms: checked,
-        })
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("Register attempt with:", formData)
+        setIsSubmitting(true)
+        if(formData.password === formData.confirmPassword){
+            setIsCorrectPassword(true)
+            try{
+                const user = {
+                    nombre: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    password: formData.password,
+                    rol: "USER"
+                }
+                await setRegister(user)
+                setIsSubmitted(true)
+                setError(false)
+            }catch(error){
+                console.error('Error al registrar al usuario:', error)
+                setIsSubmitted(false)
+                setError(true)
+            }finally{
+                setIsSubmitting(false)
+            }
+        }else{
+            setIsCorrectPassword(false)
+            setIsSubmitting(false)
+        }
+
     }
 
     return (
@@ -97,10 +115,28 @@ const RegisterForm = () => {
                         />
                     </div>
 
-                    <Button type="submit" className="w-full">
-                        Crear cuenta
+                    <Button type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full py-6 !bg-blue-600 hover:!bg-blue-700 !text-white font-semibold"
+                    >
+                        {isSubmitting ? 'Registrando...' : 'Crear Cuenta'}
                     </Button>
                 </form>
+                {error && (
+                    <p className="text-red-500 text-center text-sm">
+                        Hubo un error al registrar. Intenta nuevamente.
+                    </p>
+                )}
+                {isCorrectPassword == false && (
+                    <p className="text-red-500 text-center text-sm">
+                        Las contraseñas no coinciden.
+                    </p>
+                )}
+                {isSubmitted && (
+                    <p className="text-green-600 text-center text-sm">
+                        Registro exitoso. Redirigiendo...
+                    </p>
+                )}
             </CardContent>
             <CardFooter className="flex flex-col space-y-4">
                 <div className="text-center text-sm">
