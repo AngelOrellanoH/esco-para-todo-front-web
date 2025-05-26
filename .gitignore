@@ -1,39 +1,24 @@
-# ⚙️ Dependencias
-/node_modules/
-package-lock.json
-
-# 🧪 Tests
-/coverage/
-
-# 🚀 Producción
-/dist/
-/build/
-/www/
-
-# ⚡ Capacitor
-/android/
-/ios/
-
-# 💬 Archivos de entorno
-.env
-.env.*.local
-
-# 🧠 Editor / IDE
-.vscode/
-.idea/
-*.swp
-
-# ⚙️ NX (si no usas Nx, puedes quitar estas)
-.nx/
-.nx/cache/
-
-# 🍎 MacOS
-.DS_Store
-
-# ⚠️ Logs
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# ✅ Opcional - Eslint cache
-.eslintcache
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
