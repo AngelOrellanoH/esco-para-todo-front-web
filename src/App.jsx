@@ -1,5 +1,9 @@
 import { IonApp } from '@ionic/react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import { AuthProvider } from './contexts/AuthContext'
+
+// --- Componentes de V0.4 ---
 import Home from './pages/public/home/page'
 import About from './pages/public/about/page'
 import Contact from './pages/public/contact/page'
@@ -9,7 +13,7 @@ import Register from './pages/public/register/page'
 import MainLayout from './layouts/mainLayout'
 import ForoDetails from './components/foro/ForoDetails'
 
-
+// Configuración del router de react-router-dom v6
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,11 +30,12 @@ const router = createBrowserRouter([
   },
 ])
 
-
 function App() {
   return (
-    <IonApp>    
-      <RouterProvider router={router} />
+    <IonApp>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </IonApp>
   )
 }

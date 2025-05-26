@@ -1,8 +1,9 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+// src/components/login/LoginForm.jsx
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
@@ -10,17 +11,36 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
-const  LoginForm = () => {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+import { useAuth } from "@/contexts/AuthContext"; 
+import { IonLoading } from "@ionic/react"; 
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("Login attempt with:", { email, password })
-  }
+const LoginForm = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth(); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    console.log("Login attempt with:", { email, password });
+
+    try {
+      await login(email, password);
+      console.log("Login exitoso, redirigiendo...");
+      navigate("/", { replace: true }); 
+    } catch (err) {
+      console.error("Error en el componente LoginForm:", err.message);
+      setError(err.message || "Credenciales inválidas. Por favor, inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Card className="w-full max-w-md !border !bg-white dark:!bg-gray-900 dark:!text-white">
@@ -63,6 +83,7 @@ const  LoginForm = () => {
               required
             />
           </div>
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <Button type="submit" className="w-full">
             Entrar
           </Button>
@@ -70,7 +91,7 @@ const  LoginForm = () => {
       </CardContent>
       <CardFooter className="flex flex-col space-y-4">
         <div className="text-center text-sm">
-          ¿No tienes una cuenta? {" "}
+          ¿No tienes una cuenta?{" "}
           <span
             onClick={() => navigate("/register")}
             className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
@@ -79,8 +100,13 @@ const  LoginForm = () => {
           </span>
         </div>
       </CardFooter>
+      <IonLoading
+        isOpen={loading}
+        message={'Iniciando sesión...'}
+        duration={0}
+      />
     </Card>
-  )
-}
+  );
+};
 
 export default LoginForm;

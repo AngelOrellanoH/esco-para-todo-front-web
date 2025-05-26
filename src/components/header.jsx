@@ -1,19 +1,23 @@
-import { NavLink, useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { IonHeader, IonToolbar } from '@ionic/react'
-import logo from '../assets/logo.png'
+// src/components/header.jsx
+import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { IonHeader, IonToolbar } from "@ionic/react";
+import logo from "../assets/logo.png";
+
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const navigation = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Foro', href: '/foro' },
-    { name: 'Acerca de', href: '/about' },
-    { name: 'Contacto', href: '/contact' },
-  ]
+    { name: "Inicio", href: "/" },
+    { name: "Foro", href: "/foro" },
+    { name: "Acerca de", href: "/about" },
+    { name: "Contacto", href: "/contact" },
+  ];
+  const { isAuthenticated, user, logout } = useAuth();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { pathname } = useLocation()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -24,7 +28,11 @@ const Header = () => {
               {/* Logo */}
               <div className="flex items-center">
                 <NavLink to="/" className="flex items-center">
-                  <img src={logo} alt="ESCO para todos" className="h-10 w-auto" />
+                  <img
+                    src={logo}
+                    alt="ESCO para todos"
+                    className="h-10 w-auto"
+                  />
                 </NavLink>
               </div>
 
@@ -36,7 +44,9 @@ const Header = () => {
                     to={item.href}
                     className={({ isActive }) =>
                       `text-sm font-medium transition-colors hover:!text-blue-600 ${
-                        isActive ? '!text-blue-600' : '!text-gray-700 dark:!text-gray-300'
+                        isActive
+                          ? "!text-blue-600"
+                          : "!text-gray-700 dark:!text-gray-300"
                       }`
                     }
                   >
@@ -47,18 +57,34 @@ const Header = () => {
 
               {/* Botones */}
               <div className="hidden md:flex items-center space-x-2">
-                <NavLink 
-                  to="/login"
-                  className="!text-gray-700 dark:!text-gray-300 border border-gray-300 text-sm px-4 py-1.5 rounded transition-colors hover:!bg-gray-100 hover:!text-black dark:border-gray-600 dark:hover:!bg-gray-800 dark:hover:!text-white"
-                >
-                    Iniciar sesión 
-                </NavLink>
-                <NavLink 
-                  to="/register"
-                  className="!bg-blue-600 !text-white text-sm px-4 py-1.5 rounded hover:!bg-blue-700 transition-colors"
-                >
-                    Registrarse
-                </NavLink>
+                {!isAuthenticated ? (
+                  <>
+                    <NavLink
+                      to="/login"
+                      className="!text-gray-700 dark:!text-gray-300 border border-gray-300 text-sm px-4 py-1.5 rounded transition-colors hover:!bg-gray-100 hover:!text-black dark:border-gray-600 dark:hover:!bg-gray-800 dark:hover:!text-white"
+                    >
+                      Iniciar sesión
+                    </NavLink>
+                    <NavLink
+                      to="/register"
+                      className="!bg-blue-600 !text-white text-sm px-4 py-1.5 rounded hover:!bg-blue-700 transition-colors"
+                    >
+                      Registrarse
+                    </NavLink>
+                  </>
+                ) : (
+                  <>
+                     <div className="text-sm text-gray-700 dark:text-gray-300 py-1.5 inline-flex items-center">
+                      👤 {user?.email || "Usuario"}
+                    </div>
+                    <button
+                      onClick={logout}
+                      className="!bg-blue-600 !text-white text-sm px-4 py-1.5 rounded hover:!bg-blue-700 transition-colors"
+                    >
+                      Cerrar sesión
+                    </button>
+                  </>
+                )}
               </div>
 
               {/* Botón menú móvil */}
@@ -91,8 +117,8 @@ const Header = () => {
                 to={item.href}
                 className={`block !rounded-md px-3 py-2 !text-base font-medium ${
                   pathname === item.href
-                    ? '!bg-blue-600 !text-white'
-                    : '!text-gray-700 hover:!bg-gray-50 hover:!text-blue-600 dark:!text-gray-300 dark:hover:!bg-gray-800'
+                    ? "!bg-blue-600 !text-white"
+                    : "!text-gray-700 hover:!bg-gray-50 hover:!text-blue-600 dark:!text-gray-300 dark:hover:!bg-gray-800"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -100,24 +126,43 @@ const Header = () => {
               </NavLink>
             ))}
             <div className="mt-4 flex flex-col space-y-2 px-3">
-              <NavLink
-                to="/login"
-                onClick={() => setIsMenuOpen(false)}
-                className="w-full !justify-center !border !border-gray-300 !text-sm !px-4 !py-2 !min-h-[44px] !rounded !text-black hover:!bg-gray-100 dark:!border-gray-600 dark:hover:!bg-gray-800 inline-flex items-center"
-              >
-                Iniciar sesión
-              </NavLink>
-              <NavLink to="/register" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full justify-start bg-blue-600 text-white text-sm px-4 !py-2 !min-h-[44px] rounded hover:bg-blue-700">
-                  Registrarse
-                </button>
-              </NavLink>
+              {!isAuthenticated ? (
+                <>
+                  <NavLink
+                    to="/login"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="w-full !justify-center !border !border-gray-300 !text-sm !px-4 !py-2 !min-h-[44px] !rounded !text-black hover:!bg-gray-100 dark:!border-gray-600 dark:hover:!bg-gray-800 inline-flex items-center"
+                  >
+                    Iniciar sesión
+                  </NavLink>
+                  <NavLink to="/register" onClick={() => setIsMenuOpen(false)}>
+                    <button className="w-full justify-start bg-blue-600 text-white text-sm px-4 !py-2 !min-h-[44px] rounded hover:bg-blue-700">
+                      Registrarse
+                    </button>
+                  </NavLink>
+                </>
+              ) : (
+                <>
+                  <div className="text-sm text-gray-700 dark:text-gray-300 px-2">
+                    👤 {user?.email || "Usuario"}
+                  </div>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full justify-start bg-blue-600 text-white text-sm px-4 !py-2 !min-h-[44px] rounded hover:bg-blue-700"
+                  >
+                    Cerrar sesión
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

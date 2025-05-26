@@ -49,6 +49,9 @@ const RegisterForm = () => {
                 await setRegister(user)
                 setIsSubmitted(true)
                 setError(false)
+                setTimeout(() => {
+                navigate("/login"); // Redirige a la página de login
+            }, 1500); // 1.5 segundos de retraso
             }catch(error){
                 console.error('Error al registrar al usuario:', error)
                 setIsSubmitted(false)
