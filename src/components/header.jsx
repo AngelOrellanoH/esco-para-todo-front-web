@@ -63,7 +63,7 @@ const Header = () => {
                       to="/login"
                       className="!text-gray-700 dark:!text-gray-300 border border-gray-300 text-sm px-4 py-1.5 rounded transition-colors hover:!bg-gray-100 hover:!text-black dark:border-gray-600 dark:hover:!bg-gray-800 dark:hover:!text-white"
                     >
-                      Iniciar sesión
+                      Iniciar sesióne
                     </NavLink>
                     <NavLink
                       to="/register"
