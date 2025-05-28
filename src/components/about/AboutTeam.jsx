@@ -1,45 +1,35 @@
-import { Card, CardContent } from '@/components/ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import JA from '@/assets/JA.png'
-import AO from '@/assets/AO.png'
-import AM from '@/assets/AM.png'
-import JH from '@/assets/JH.png'
+import { Card, CardContent } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import JA from '@/assets/JA.png';
+import AO from '@/assets/AO.png';
+import AM from '@/assets/AM.png';
+import JH from '@/assets/JH.png';
+import { useTranslation } from 'react-i18next';
 
 const AboutTeam = () => {
-  const teamMembers = [
-    {
-      name: 'Javier Antoranz',
-      role: 'Diseñador de Base de Datos y Desarrollador Backend',
-      avatar: JA,
-      initials: 'JA',
-    },
-    {
-      name: 'Amle Martinez',
-      role: 'Diseñador de Interface y Desarrollador Móvil',
-      avatar: AM,
-      initials: 'AM',
-    },
-    {
-      name: 'Antonio Orellano',
-      role: 'Responsable de Equipo y Desarrollador Backend',
-      avatar: AO,
-      initials: 'AO',
-    },
-    {
-      name: 'Joel Hernández',
-      role: 'Diseñador de Interface y Desarrollador Web',
-      avatar: JH,
-      initials: 'JH',
-    },
-  ]
+  const { t } = useTranslation('about');
+
+  // Mapeamos los miembros del equipo desde las traducciones
+  const teamMembers = t('team.members', { returnObjects: true }).map((member, index) => {
+    // Definimos las imágenes y las iniciales fuera del JSON ya que no son texto traducible
+    const avatars = [JA, AM, AO, JH];
+    const initials = ['JA', 'AM', 'AO', 'JH'];
+
+    return {
+      name: member.name,
+      role: member.role,
+      avatar: avatars[index],
+      initials: initials[index],
+    };
+  });
 
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold !text-[#003060] mb-4">Nuestro equipo</h2>
+          <h2 className="text-3xl font-bold !text-[#003060] mb-4">{t('team.title')}</h2>
           <p className="text-lg !text-gray-600 dark:!text-gray-400 max-w-3xl mx-auto">
-            Un equipo multidisciplinario comprometido con el desarrollo de soluciones innovadoras para la educación.
+            {t('team.description')}
           </p>
         </div>
 
@@ -61,7 +51,7 @@ const AboutTeam = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutTeam
+export default AboutTeam;

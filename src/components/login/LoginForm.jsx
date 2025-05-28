@@ -1,4 +1,3 @@
-// src/components/login/LoginForm.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -13,12 +12,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { useAuth } from "@/contexts/AuthContext"; 
-import { IonLoading } from "@ionic/react"; 
+import { useAuth } from "@/contexts/AuthContext";
+import { IonLoading } from "@ionic/react";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
+  const { t } = useTranslation('login');
   const navigate = useNavigate();
-  const { login } = useAuth(); 
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -33,10 +34,10 @@ const LoginForm = () => {
     try {
       await login(email, password);
       console.log("Login exitoso, redirigiendo...");
-      navigate("/", { replace: true }); 
+      navigate("/", { replace: true });
     } catch (err) {
       console.error("Error en el componente LoginForm:", err.message);
-      setError(err.message || "Credenciales inválidas. Por favor, inténtalo de nuevo.");
+      setError(err.message || t('loginForm.invalidCredentials'));
     } finally {
       setLoading(false);
     }
@@ -46,20 +47,20 @@ const LoginForm = () => {
     <Card className="w-full max-w-md !border !bg-white dark:!bg-gray-900 dark:!text-white">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center !text-[#003060]">
-          Iniciar sesión
+          {t('loginForm.title')}
         </CardTitle>
         <CardDescription className="text-center !text-gray-600 dark:!text-gray-400">
-          Accede con tu correo y contraseña
+          {t('loginForm.description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Correo electrónico</Label>
+            <Label htmlFor="email">{t('loginForm.emailLabel')}</Label>
             <Input
               id="email"
               type="email"
-              placeholder="nombre@ejemplo.com"
+              placeholder={t('loginForm.emailPlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -67,12 +68,12 @@ const LoginForm = () => {
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">{t('loginForm.passwordLabel')}</Label>
               <span
                 onClick={() => navigate("/forgot-password")}
                 className="text-sm text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
               >
-                ¿Olvidaste tu contraseña?
+                {t('loginForm.forgotPassword')}
               </span>
             </div>
             <Input
@@ -85,24 +86,24 @@ const LoginForm = () => {
           </div>
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <Button type="submit" className="w-full">
-            Entrar
+            {t('loginForm.loginButton')}
           </Button>
         </form>
       </CardContent>
       <CardFooter className="flex flex-col space-y-4">
         <div className="text-center text-sm">
-          ¿No tienes una cuenta?{" "}
+          {t('loginForm.noAccountPrompt')}{" "}
           <span
             onClick={() => navigate("/register")}
             className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
           >
-            Crear cuenta
+            {t('loginForm.createAccountLink')}
           </span>
         </div>
       </CardFooter>
       <IonLoading
         isOpen={loading}
-        message={'Iniciando sesión...'}
+        message={t('loginForm.loadingMessage')}
         duration={0}
       />
     </Card>

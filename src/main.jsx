@@ -4,6 +4,7 @@ import App from './App';
 import { setupIonicReact } from '@ionic/react';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import './index.css';
+import "./i18n";
 
 setupIonicReact();
 defineCustomElements(window);

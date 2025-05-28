@@ -1,0 +1,64 @@
+{
+  "banner": {
+    "title": "Acerca de ESCO para todos",
+    "description": "ESCO para todos es un proyecto desarrollado por el grupo de investigación Acuario para facilitar a los docentes el acceso a las habilidades, competencias, cualificaciones y ocupaciones relevantes reflejadas en ESCO para el mercado laboral y la educación de la UE."
+  },
+  "content": {
+    "title": "El Proyecto",
+    "p1": "El grupo de investigación Acuario ha estado trabajando durante los últimos meses en un programa capaz de permitir a los docentes conocer las habilidades, competencias, cualificaciones y ocupaciones relevantes reflejadas en ESCO para el mercado laboral y la educación de la UE.",
+    "p2": "Este conocimiento puede ser aplicado principalmente en las guías docentes de sus asignaturas simplemente proporcionando una descripción de su perfil. Nuestra plataforma proporciona una interfaz gráfica e interactiva para que los usuarios puedan hacer uso de esta herramienta de forma sencilla e intuitiva.",
+    "p3": "El sistema ha sido desarrollado mediante metodologías ágiles, cuenta con diferentes perfiles de usuario y está disponible tanto en versión web como móvil, con soporte para múltiples idiomas."
+  },
+  "goals": {
+    "title": "Objetivos del Proyecto",
+    "subtitle": "Nuestra plataforma tiene como finalidad apoyar a los docentes en el diseño de sus asignaturas alineadas con las competencias del marco ESCO.",
+    "items": [
+      {
+        "title": "Proporcionar una herramienta innovadora",
+        "description": "Desarrollar una plataforma que facilite a los docentes la comprensión de las competencias y habilidades de ESCO."
+      },
+      {
+        "title": "Fomentar la colaboración",
+        "description": "Permitir que distintos perfiles educativos colaboren en la construcción de guías docentes alineadas con ESCO."
+      },
+      {
+        "title": "Internacionalización",
+        "description": "Ofrecer una plataforma multilingüe que se adapte a diferentes contextos europeos."
+      },
+      {
+        "title": "Facilitar el aprendizaje",
+        "description": "Mejorar el proceso de enseñanza incorporando referencias claras a competencias laborales."
+      },
+      {
+        "title": "Uso de tecnologías abiertas",
+        "description": "Desarrollar la solución utilizando software libre y tecnologías web modernas."
+      },
+      {
+        "title": "Evaluación y mejora continua",
+        "description": "Monitorear el uso de la herramienta para implementar mejoras constantes basadas en el feedback."
+      }
+    ]
+  },
+  "team": {
+    "title": "Nuestro equipo",
+    "description": "Un equipo multidisciplinario comprometido con el desarrollo de soluciones innovadoras para la educación.",
+    "members": [
+      {
+        "name": "Javier Antoranz",
+        "role": "Diseñador de Base de Datos y Desarrollador Backend"
+      },
+      {
+        "name": "Amle Martinez",
+        "role": "Diseñador de Interface y Desarrollador Móvil"
+      },
+      {
+        "name": "Antonio Orellano",
+        "role": "Responsable de Equipo y Desarrollador Backend"
+      },
+      {
+        "name": "Joel Hernández",
+        "role": "Diseñador de Interface y Desarrollador Web"
+      }
+    ]
+  }
+}

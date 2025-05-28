@@ -1,0 +1,29 @@
+{
+  "details": {
+    "notFound": {
+      "title": "Topic Not Found",
+      "message": "The topic you are looking for does not exist or has been deleted.",
+      "button": "Back to Forum"
+    },
+    "loading": "Loading...",
+    "error": {
+      "prefix": "Error:",
+      "button": "Back to Forum"
+    },
+    "backButton": "Back to forum",
+    "authorPrefix": "By",
+    "defaultAuthor": "DEFAULT AUTHOR",
+    "messageCountSuffix": "{{count}}",
+    "topicAuthor": "Topic Author",
+    "repliesTitle": "Replies ({{count}})"
+  },
+   "titles": {
+    "cardTitle": "Forum Topics",
+    "cardDescription": "Explore recent community conversations.",
+    "authorPrefix": "By",
+    "defaultAuthor": "DEFAULT AUTHOR",
+    "defaultMessageCount": "10 (DEFAULT NUMBER)",
+    "noForums": "No Forums Created",
+    "loadingError": "Error loading forums:"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "registerForm": {
+    "title": "Crear cuenta",
+    "description": "Regístrate completando la información solicitada",
+    "firstNameLabel": "Nombre",
+    "lastNameLabel": "Apellido",
+    "emailLabel": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "registerButton": "Crear Cuenta",
+    "registeringButton": "Registrando...",
+    "errorGeneric": "Hubo un error al registrar. Intenta nuevamente.",
+    "passwordMismatch": "Las contraseñas no coinciden.",
+    "registrationSuccess": "Registro exitoso. Redirigiendo...",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Iniciar sesión"
+  }
+}

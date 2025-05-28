@@ -1,0 +1,29 @@
+{
+  "details": {
+    "notFound": {
+      "title": "Tema no encontrado",
+      "message": "El tema que estás buscando no existe o ha sido eliminado.",
+      "button": "Volver al foro"
+    },
+    "loading": "Cargando...",
+    "error": {
+      "prefix": "Error:",
+      "button": "Volver al foro"
+    },
+    "backButton": "Volver al foro",
+    "authorPrefix": "Por",
+    "defaultAuthor": "AUTOR POR DEFECTO",
+    "messageCountSuffix": "{{count}}",
+    "topicAuthor": "Autor del tema",
+    "repliesTitle": "Respuestas ({{count}})"
+  },
+  "titles": {
+    "cardTitle": "Temas del foro",
+    "cardDescription": "Explora las conversaciones recientes de la comunidad.",
+    "authorPrefix": "Por",
+    "defaultAuthor": "AUTOR POR DEFECTO",
+    "defaultMessageCount": "10 (NÚMERO POR DEFECTO)",
+    "noForums": "No hay Foros Creados",
+    "loadingError": "Error al cargar los foros:"
+  }
+}

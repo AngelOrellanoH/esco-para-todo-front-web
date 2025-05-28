@@ -1,0 +1,18 @@
+{
+  "registerForm": {
+    "title": "Create Account",
+    "description": "Register by completing the requested information",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "registerButton": "Create Account",
+    "registeringButton": "Registering...",
+    "errorGeneric": "There was an error during registration. Please try again.",
+    "passwordMismatch": "Passwords do not match.",
+    "registrationSuccess": "Registration successful. Redirecting...",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Log in"
+  }
+}

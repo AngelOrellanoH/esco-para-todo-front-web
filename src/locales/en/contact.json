@@ -1,0 +1,76 @@
+{
+  "form": {
+    "title": "Contact Form",
+    "description": "Do you have questions or suggestions? Send us a message.",
+    "fields": {
+      "name": {
+        "label": "Full name"
+      },
+      "email": {
+        "label": "Email address"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Select a subject",
+        "options": {
+          "general": "General inquiry",
+          "technical": "Technical support",
+          "feedback": "Feedback",
+          "collaboration": "Collaboration",
+          "other": "Other"
+        }
+      },
+      "message": {
+        "label": "Message"
+      }
+    },
+    "submitButton": {
+      "idle": "Send Message",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Message sent!",
+      "message": "Thank you for contacting us. We will reply soon.",
+      "button": "Send another message"
+    },
+    "error": {
+      "title": "Error sending Message!",
+      "message": "We apologize for the inconvenience, but the message could not be sent.",
+      "button": "Try Again"
+    }
+  },
+   "info": {
+    "title": "Contact Us",
+    "description": "Do you have questions or need more information? Get in touch with us.",
+    "card": {
+      "title": "Contact Information",
+      "description": "We are here to help you",
+      "email": {
+        "title": "Email",
+        "address": "info@escoparatodos.es"
+      },
+      "phone": {
+        "title": "Phone",
+        "number": "+34 912 345 678"
+      },
+      "address": {
+        "title": "Address",
+        "line1": "University of Alcalá de Henares",
+        "line2": "Faculty of Computer Science",
+        "line3": "Main Street, 123",
+        "line4": "28003 Madrid, Spain"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "weekday": "Monday to Friday: 9:00 AM - 6:00 PM",
+        "weekend": "Saturdays and Sundays: Closed"
+      },
+      "social": {
+        "title": "Social Media",
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "facebook": "Facebook"
+      }
+    }
+  }
+}

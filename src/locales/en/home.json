@@ -1,0 +1,66 @@
+{
+  "accountSection": {
+    "title": "Ready to get started?",
+    "description": "Register today and start exploring your competencies and job opportunities with ESCO for everyone.",
+    "registerButton": "Register",
+    "contactButton": "Contact Us"
+  },
+   "bannerSection": {
+    "title": "Discover Skills and Occupations with ESCO",
+    "description": "Access clear and organized information on skills, competencies, and occupations according to the European ESCO framework.",
+    "learnMoreButton": "Learn More",
+    "startButton": "Get Started Now",
+    "imageAlt": "ESCO for all Banner"
+  },
+   "featureSection": {
+    "title": "Main Features",
+    "description": "Our platform offers key tools to help you manage and develop your professional profile.",
+    "features": [
+      {
+        "title": "Customizable profile",
+        "description": "Create and manage your profile with your skills, education, and experience."
+      },
+      {
+        "title": "ESCO competencies",
+        "description": "Explore and add official competencies from the ESCO framework."
+      },
+      {
+        "title": "Intelligent matching",
+        "description": "We suggest occupations based on your skills."
+      },
+      {
+        "title": "Community forum",
+        "description": "Participate in discussions, ask questions, and share knowledge."
+      },
+      {
+        "title": "Change history",
+        "description": "Check the history of modifications to your profile."
+      },
+      {
+        "title": "Available in multiple languages",
+        "description": "The platform is accessible in multiple languages for greater inclusion."
+      }
+    ]
+  },
+  "infoSection": {
+    "title": "What is ESCO?",
+    "description": "The European classification of skills, competencies, qualifications and occupations.",
+    "cards": [
+      {
+        "title": "ESCO",
+        "description": "European Classification",
+        "content": "ESCO is the multilingual European classification of skills, competences, qualifications and occupations. ESCO functions as a dictionary describing, identifying and classifying professions, skills and qualifications relevant for the EU labour market and education and training."
+      },
+      {
+        "title": "Competencies",
+        "description": "Skills and Knowledge",
+        "content": "Competences are the knowledge, aptitudes, and abilities that can be applied in an occupational context. ESCO distinguishes between competences/skills and knowledge, and between transversal and occupation-specific competences/skills and knowledge."
+      },
+      {
+        "title": "Qualifications",
+        "description": "Certifications and Titles",
+        "content": "Qualifications are the formal outcome of an assessment and validation process obtained when a competent authority establishes that an individual has achieved learning outcomes corresponding to given standards."
+      }
+    ]
+  }
+}
