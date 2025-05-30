@@ -12,8 +12,10 @@
   "language": {
     "es_short": "ES",
     "en_short": "EN",
+    "pt_short": "PT",
     "es_long": "Español",
-    "en_long": "Inglés"
+    "en_long": "Inglés",
+    "pt_long": "Portugués"
   },
   "sr_only": {
     "open_menu": "Abrir menú"

@@ -1,0 +1,76 @@
+{
+  "form": {
+    "title": "Formulário de contato",
+    "description": "Tem perguntas ou sugestões? Envie-nos uma mensagem.",
+    "fields": {
+      "name": {
+        "label": "Nome completo"
+      },
+      "email": {
+        "label": "Endereço de e-mail"
+      },
+      "subject": {
+        "label": "Assunto",
+        "placeholder": "Selecione um assunto",
+        "options": {
+          "general": "Consulta geral",
+          "technical": "Suporte técnico",
+          "feedback": "Feedback",
+          "collaboration": "Colaboração",
+          "other": "Outro"
+        }
+      },
+      "message": {
+        "label": "Mensagem"
+      }
+    },
+    "submitButton": {
+      "idle": "Enviar mensagem",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Mensagem enviada!",
+      "message": "Obrigado por nos contatar. Responderemos em breve.",
+      "button": "Enviar outra mensagem"
+    },
+    "error": {
+      "title": "Erro ao enviar a Mensagem!",
+      "message": "Pedimos desculpas pelo inconveniente, mas não foi possível enviar a Mensagem.",
+      "button": "Tentar Novamente"
+    }
+  },
+  "info": {
+    "title": "Contato",
+    "description": "Tem perguntas ou deseja mais informações? Entre em contato conosco.",
+    "card": {
+      "title": "Informações de contato",
+      "description": "Estamos aqui para ajudar você",
+      "email": {
+        "title": "E-mail",
+        "address": "info@escoparatodos.es"
+      },
+      "phone": {
+        "title": "Telefone",
+        "number": "+34 912 345 678"
+      },
+      "address": {
+        "title": "Endereço",
+        "line1": "Universidade de Alcalá de Henares",
+        "line2": "Faculdade de Informática",
+        "line3": "Rua Principal, 123",
+        "line4": "28003 Madrid, Espanha"
+      },
+      "hours": {
+        "title": "Horário de atendimento",
+        "weekday": "Segunda a sexta-feira: 9:00 - 18:00",
+        "weekend": "Sábados e domingos: Fechado"
+      },
+      "social": {
+        "title": "Redes sociais",
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "facebook": "Facebook"
+      }
+    }
+  }
+}

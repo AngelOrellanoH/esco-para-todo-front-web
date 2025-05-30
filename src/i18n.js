@@ -21,6 +21,15 @@ import homeES from './locales/es/home.json';
 import loginES from './locales/es/login.json';
 import registerES from './locales/es/register.json';
 
+// Portugues
+import commonPT from './locales/pt/common.json';
+import aboutPT from './locales/pt/about.json';
+import contactPT from './locales/pt/contact.json';
+import forosPT from './locales/pt/foros.json';
+import homePT from './locales/pt/home.json';
+import loginPT from './locales/pt/login.json';
+import registerPT from './locales/pt/register.json';
+
 
 const resources = {
   en: {
@@ -40,6 +49,15 @@ const resources = {
     home: homeES,
     login: loginES,
     register: registerES, 
+  },
+  pt: {
+    common: commonPT,
+    about: aboutPT,
+    contact: contactPT,
+    foros: forosPT,
+    home: homePT,
+    login: loginPT,
+    register: registerPT,
   }
 };
 
@@ -48,7 +66,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'es',
+    fallbackLng: 'es', 
     debug: true,
     interpolation: {
       escapeValue: false,
@@ -57,7 +75,7 @@ i18n
         order: ['queryString', 'cookie', 'localStorage', 'navigator'],
         caches: ['localStorage']
     },
-    ns: ['common', 'about', 'contact', 'foros', 'home', 'login', 'register'],
+    ns: ['common', 'about', 'contact', 'foros', 'home', 'login', 'register'], // Ya está completo con todos los namespaces
     defaultNS: 'common'
   });
 

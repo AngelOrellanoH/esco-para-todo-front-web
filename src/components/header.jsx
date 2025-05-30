@@ -1,13 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Globe } from "lucide-react"; // Asegúrate de que Globe esté importado
+import { Menu, X, Globe } from "lucide-react"; 
 import { IonHeader, IonToolbar } from "@ionic/react";
-import { useTranslation } from "react-i18next"; // No necesita especificar namespace aquí porque 'common' es el default
+import { useTranslation } from "react-i18next"; 
 import logo from "../assets/logo.png";
 import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
-  // `t` aquí por defecto usará las traducciones del namespace 'common'
+  
   const { t, i18n } = useTranslation();
   const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ const Header = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    // Opcional: cierra el menú móvil si el cambio de idioma se hace desde el menú móvil
+  
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
@@ -69,6 +69,7 @@ const Header = () => {
                     {/* Usar t() para traducir las opciones, usando las nuevas claves de idioma */}
                     <option value="es">{t("language.es_short")}</option>
                     <option value="en">{t("language.en_short")}</option>
+                    <option value="pt">{t("language.pt_short")}</option>
                   </select>
                 </div>
 
@@ -150,6 +151,7 @@ const Header = () => {
                 >
                     <option value="es">{t("language.es_short")}</option>
                     <option value="en">{t("language.en_short")}</option>
+                    <option value="pt">{t("language.pt_short")}</option>
                 </select>
             </div>
             <div className="mt-4 flex flex-col space-y-2 px-3">

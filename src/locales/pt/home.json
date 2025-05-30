@@ -1,0 +1,66 @@
+{
+  "accountSection": {
+    "title": "Pronto para começar?",
+    "description": "Registe-se hoje e comece a explorar as suas competências e oportunidades de trabalho com ESCO para todos.",
+    "registerButton": "Registar",
+    "contactButton": "Contacte-nos"
+  },
+  "bannerSection": {
+    "title": "Descubra habilidades e ocupações com ESCO",
+    "description": "Aceda a informação clara e organizada sobre habilidades, competências e ocupações de acordo com o quadro europeu ESCO.",
+    "learnMoreButton": "Saber mais",
+    "startButton": "Começar agora",
+    "imageAlt": "Banner ESCO para todos"
+  },
+  "featureSection": {
+    "title": "Funcionalidades principais",
+    "description": "A nossa plataforma oferece ferramentas essenciais para o ajudar a gerir e desenvolver o seu perfil profissional.",
+    "features": [
+      {
+        "title": "Perfil personalizável",
+        "description": "Crie e gira o seu perfil com as suas habilidades, formação e experiência."
+      },
+      {
+        "title": "Competências ESCO",
+        "description": "Explore e adicione competências oficiais do quadro ESCO."
+      },
+      {
+        "title": "Correspondência inteligente",
+        "description": "Sugerimos ocupações com base nas suas competências."
+      },
+      {
+        "title": "Fórum comunitário",
+        "description": "Participe em debates, faça perguntas e partilhe conhecimentos."
+      },
+      {
+        "title": "Histórico de alterações",
+        "description": "Consulte o histórico de modificações no seu perfil."
+      },
+      {
+        "title": "Disponível em vários idiomas",
+        "description": "A plataforma está acessível em múltiplos idiomas para maior inclusão."
+      }
+    ]
+  },
+  "infoSection": {
+    "title": "O que é ESCO?",
+    "description": "A classificação europeia de capacidades, competências, qualificações e ocupações.",
+    "cards": [
+      {
+        "title": "ESCO",
+        "description": "Classificação Europeia",
+        "content": "ESCO é a classificação europeia multilingue de capacidades, competências, qualificações e ocupações. ESCO funciona como um dicionário que descreve, identifica e classifica as profissões, capacidades e qualificações pertinentes para o mercado de trabalho e a educação e formação da UE."
+      },
+      {
+        "title": "Competências",
+        "description": "Habilidades e conhecimentos",
+        "content": "As competências são os conhecimentos, aptidões e habilidades que podem ser aplicadas num contexto ocupacional. ESCO distingue entre competências/capacidades e conhecimentos, e entre competências/capacidades e conhecimentos transversais e específicos de uma ocupação."
+      },
+      {
+        "title": "Qualificações",
+        "description": "Certificações e títulos",
+        "content": "As qualificações são o resultado formal de um processo de avaliação e validação que se obtém quando uma autoridade competente estabelece que uma pessoa atingiu os resultados de aprendizagem correspondentes a umas normas determinadas."
+      }
+    ]
+  }
+}

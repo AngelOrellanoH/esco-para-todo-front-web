@@ -1,0 +1,15 @@
+{
+  "loginForm": {
+    "title": "Iniciar sessão",
+    "description": "Aceda com o seu e-mail e palavra-passe",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "nome@exemplo.com",
+    "passwordLabel": "Palavra-passe",
+    "forgotPassword": "Esqueceu a sua palavra-passe?",
+    "invalidCredentials": "Credenciais inválidas. Por favor, tente novamente.",
+    "loginButton": "Entrar",
+    "noAccountPrompt": "Não tem uma conta?",
+    "createAccountLink": "Criar conta",
+    "loadingMessage": "A iniciar sessão..."
+  }
+}
