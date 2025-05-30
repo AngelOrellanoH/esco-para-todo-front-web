@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { setRegister } from "@/services/register-service"
+
+import { AuthService } from "@/services/auth-service" 
+import { useTranslation } from "react-i18next";
 
 
 const RegisterForm = () => {
+    const { t } = useTranslation('register');
     const navigate = useNavigate()
-    
+
     const [isCorrectPassword, setIsCorrectPassword] = useState(null)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -26,8 +29,8 @@ const RegisterForm = () => {
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({
-        ...formData,
-        [name]: value,
+            ...formData,
+            [name]: value,
         })
         if(name === "password" || name === "confirmPassword"){
             setIsCorrectPassword(null)
@@ -46,12 +49,13 @@ const RegisterForm = () => {
                     password: formData.password,
                     rol: "USER"
                 }
-                await setRegister(user)
+              
+                await AuthService.register(user) 
                 setIsSubmitted(true)
                 setError(false)
                 setTimeout(() => {
-                navigate("/login"); // Redirige a la página de login
-            }, 1500); // 1.5 segundos de retraso
+                    navigate("/login"); // Redirige a la página de login
+                }, 1500); // 1.5 segundos de retraso
             }catch(error){
                 console.error('Error al registrar al usuario:', error)
                 setIsSubmitted(false)
@@ -70,32 +74,32 @@ const RegisterForm = () => {
         <Card className="w-full max-w-md !border !bg-white dark:!bg-gray-900 dark:!text-white">
             <CardHeader className="space-y-1">
                 <CardTitle className="text-2xl font-bold text-center !text-[#003060]">
-                Crear cuenta
+                    {t('registerForm.title')}
                 </CardTitle>
                 <CardDescription className="text-center !text-gray-600 dark:!text-gray-400">
-                Regístrate completando la información solicitada
+                    {t('registerForm.description')}
                 </CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label htmlFor="firstName">Nombre</Label>
+                            <Label htmlFor="firstName">{t('registerForm.firstNameLabel')}</Label>
                             <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="lastName">Apellido</Label>
+                            <Label htmlFor="lastName">{t('registerForm.lastNameLabel')}</Label>
                             <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
                         </div>
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="email">Correo electrónico</Label>
+                        <Label htmlFor="email">{t('registerForm.emailLabel')}</Label>
                         <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="password">Contraseña</Label>
+                        <Label htmlFor="password">{t('registerForm.passwordLabel')}</Label>
                         <Input
                             id="password"
                             name="password"
@@ -107,7 +111,7 @@ const RegisterForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
+                        <Label htmlFor="confirmPassword">{t('registerForm.confirmPasswordLabel')}</Label>
                         <Input
                             id="confirmPassword"
                             name="confirmPassword"
@@ -118,37 +122,37 @@ const RegisterForm = () => {
                         />
                     </div>
 
-                    <Button type="submit" 
+                    <Button type="submit"
                         disabled={isSubmitting}
                         className="w-full py-6 !bg-blue-600 hover:!bg-blue-700 !text-white font-semibold"
                     >
-                        {isSubmitting ? 'Registrando...' : 'Crear Cuenta'}
+                        {isSubmitting ? t('registerForm.registeringButton') : t('registerForm.registerButton')}
                     </Button>
                 </form>
                 {error && (
                     <p className="text-red-500 text-center text-sm">
-                        Hubo un error al registrar. Intenta nuevamente.
+                        {t('registerForm.errorGeneric')}
                     </p>
                 )}
-                {isCorrectPassword == false && (
+                {isCorrectPassword === false && (
                     <p className="text-red-500 text-center text-sm">
-                        Las contraseñas no coinciden.
+                        {t('registerForm.passwordMismatch')}
                     </p>
                 )}
                 {isSubmitted && (
                     <p className="text-green-600 text-center text-sm">
-                        Registro exitoso. Redirigiendo...
+                        {t('registerForm.registrationSuccess')}
                     </p>
                 )}
             </CardContent>
             <CardFooter className="flex flex-col space-y-4">
                 <div className="text-center text-sm">
-                    ¿Ya tienes una cuenta? {" "}
+                    {t('registerForm.alreadyHaveAccount')}{" "}
                     <span
                         onClick={() => navigate("/login")}
                         className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
                     >
-                        Iniciar sesión
+                        {t('registerForm.loginLink')}
                     </span>
                 </div>
             </CardFooter>

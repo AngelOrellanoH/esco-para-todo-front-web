@@ -1,42 +1,45 @@
 import { CheckCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next';
 
 const FeatureSection = () => {
+  const { t } = useTranslation('home');
+
   const features = [
     {
-      title: 'Perfil personalizable',
-      description: 'Crea y gestiona tu perfil con tus habilidades, formación y experiencia.',
+      title: t('featureSection.features.0.title'),
+      description: t('featureSection.features.0.description'),
     },
     {
-      title: 'Competencias ESCO',
-      description: 'Explora y añade competencias oficiales del marco ESCO.',
+      title: t('featureSection.features.1.title'),
+      description: t('featureSection.features.1.description'),
     },
     {
-      title: 'Coincidencia inteligente',
-      description: 'Te sugerimos ocupaciones basadas en tus competencias.',
+      title: t('featureSection.features.2.title'),
+      description: t('featureSection.features.2.description'),
     },
     {
-      title: 'Foro comunitario',
-      description: 'Participa en debates, haz preguntas y comparte conocimientos.',
+      title: t('featureSection.features.3.title'),
+      description: t('featureSection.features.3.description'),
     },
     {
-      title: 'Historial de cambios',
-      description: 'Consulta el historial de modificaciones en tu perfil.',
+      title: t('featureSection.features.4.title'),
+      description: t('featureSection.features.4.description'),
     },
     {
-      title: 'Disponible en varios idiomas',
-      description: 'La plataforma está accesible en múltiples idiomas para mayor inclusión.',
+      title: t('featureSection.features.5.title'),
+      description: t('featureSection.features.5.description'),
     },
-  ]
+  ];
 
   return (
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold !text-[#003060] mb-4">
-            Características principales
+            {t('featureSection.title')}
           </h2>
           <p className="text-lg !text-gray-600 dark:!text-gray-400 max-w-3xl mx-auto">
-            Nuestra plataforma ofrece herramientas clave para ayudarte a gestionar y desarrollar tu perfil profesional.
+            {t('featureSection.description')}
           </p>
         </div>
 

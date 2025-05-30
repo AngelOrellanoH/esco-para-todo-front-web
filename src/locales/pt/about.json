@@ -1,0 +1,64 @@
+{
+  "banner": {
+    "title": "Sobre ESCO para todos",
+    "description": "ESCO para todos é um projeto desenvolvido pelo grupo de pesquisa Acuario para facilitar aos professores o acesso às habilidades, competências, qualificações e ocupações relevantes refletidas na ESCO para o mercado de trabalho e educação da UE."
+  },
+  "content": {
+    "title": "O Projeto",
+    "p1": "O grupo de pesquisa Acuario tem trabalhado nos últimos meses em um programa capaz de permitir aos professores conhecer as habilidades, competências, qualificações e ocupações relevantes refletidas na ESCO para o mercado de trabalho e educação da UE.",
+    "p2": "Este conhecimento pode ser aplicado principalmente nos guias didáticos de suas disciplinas, simplesmente fornecendo uma descrição de seu perfil. Nossa plataforma oferece uma interface gráfica e interativa para que os usuários possam usar esta ferramenta de forma simples e intuitiva.",
+    "p3": "O sistema foi desenvolvido utilizando metodologias ágeis, possui diferentes perfis de usuário e está disponível tanto em versão web quanto móvel, com suporte para múltiplos idiomas."
+  },
+  "goals": {
+    "title": "Objetivos do Projeto",
+    "subtitle": "Nossa plataforma visa apoiar os professores no design de suas disciplinas alinhadas com as competências do quadro ESCO.",
+    "items": [
+      {
+        "title": "Fornecer uma ferramenta inovadora",
+        "description": "Desenvolver uma plataforma que facilite aos professores a compreensão das competências e habilidades do ESCO."
+      },
+      {
+        "title": "Fomentar a colaboração",
+        "description": "Permitir que diferentes perfis educativos colaborem na construção de guias didáticos alinhados com o ESCO."
+      },
+      {
+        "title": "Internacionalização",
+        "description": "Oferecer uma plataforma multilíngue que se adapte a diferentes contextos europeus."
+      },
+      {
+        "title": "Facilitar o aprendizado",
+        "description": "Melhorar o processo de ensino incorporando referências claras a competências de trabalho."
+      },
+      {
+        "title": "Uso de tecnologias abertas",
+        "description": "Desenvolver a solução utilizando software livre e tecnologias web modernas."
+      },
+      {
+        "title": "Avaliação e melhoria contínua",
+        "description": "Monitorar o uso da ferramenta para implementar melhorias constantes baseadas no feedback."
+      }
+    ]
+  },
+  "team": {
+    "title": "Nossa equipe",
+    "description": "Uma equipe multidisciplinar comprometida com o desenvolvimento de soluções inovadoras para a educação.",
+    "members": [
+      {
+        "name": "Javier Antoranz",
+        "role": "Designer de Banco de Dados e Desenvolvedor Backend"
+      },
+      {
+        "name": "Amle Martinez",
+        "role": "Designer de Interface e Desenvolvedor Móvel"
+      },
+      {
+        "name": "Antonio Orellano",
+        "role": "Líder de Equipe e Desenvolvedor Backend"
+      },
+      {
+        "name": "Joel Hernández",
+        "role": "Designer de Interface e Desenvolvedor Web"
+      }
+    ]
+  }
+}

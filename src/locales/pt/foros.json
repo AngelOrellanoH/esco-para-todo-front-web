@@ -1,0 +1,29 @@
+{
+  "details": {
+    "notFound": {
+      "title": "Tópico não encontrado",
+      "message": "O tópico que você está procurando não existe ou foi excluído.",
+      "button": "Voltar para o fórum"
+    },
+    "loading": "Carregando...",
+    "error": {
+      "prefix": "Erro:",
+      "button": "Voltar para o fórum"
+    },
+    "backButton": "Voltar para o fórum",
+    "authorPrefix": "Por",
+    "defaultAuthor": "AUTOR PADRÃO",
+    "messageCountSuffix": "{{count}}",
+    "topicAuthor": "Autor do tópico",
+    "repliesTitle": "Respostas ({{count}})"
+  },
+  "titles": {
+    "cardTitle": "Tópicos do fórum",
+    "cardDescription": "Explore as conversas recentes da comunidade.",
+    "authorPrefix": "Por",
+    "defaultAuthor": "AUTOR PADRÃO",
+    "defaultMessageCount": "10 (NÚMERO PADRÃO)",
+    "noForums": "Nenhum Fórum Criado",
+    "loadingError": "Erro ao carregar os fóruns:"
+  }
+}

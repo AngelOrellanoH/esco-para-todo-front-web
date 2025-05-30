@@ -1,0 +1,15 @@
+{
+  "loginForm": {
+    "title": "Iniciar sesión",
+    "description": "Accede con tu correo y contraseña",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "passwordLabel": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "invalidCredentials": "Credenciales inválidas. Por favor, inténtalo de nuevo.",
+    "loginButton": "Entrar",
+    "noAccountPrompt": "¿No tienes una cuenta?",
+    "createAccountLink": "Crear cuenta",
+    "loadingMessage": "Iniciando sesión..."
+  }
+}

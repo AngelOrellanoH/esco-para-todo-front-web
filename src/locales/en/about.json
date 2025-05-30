@@ -1,0 +1,63 @@
+{
+  "banner": {
+    "title": "About ESCO for Everyone",
+    "description": "ESCO for Everyone is a project developed by the Acuario research group to help teachers access the relevant skills, competences, qualifications, and occupations reflected in ESCO for the EU job market and education."
+  }, "content": {
+    "title": "The Project",
+    "p1": "The Acuario research group has been working over recent months on a tool to help teachers understand the relevant skills, competences, qualifications, and occupations reflected in ESCO for the EU job market and education.",
+    "p2": "This knowledge can mainly be applied in the course guides of their subjects by simply providing a profile description. Our platform offers a graphical and interactive interface so that users can use this tool easily and intuitively.",
+    "p3": "The system has been developed using agile methodologies, supports different user roles, and is available in both web and mobile versions with multilingual support."
+  },
+  "goals": {
+    "title": "Project Objectives",
+    "subtitle": "Our platform aims to support teachers in designing their subjects aligned with the ESCO framework competencies.",
+    "items": [
+      {
+        "title": "Provide an innovative tool",
+        "description": "Develop a platform that facilitates teachers' understanding of ESCO competencies and skills."
+      },
+      {
+        "title": "Foster collaboration",
+        "description": "Enable different educational profiles to collaborate in building teaching guides aligned with ESCO."
+      },
+      {
+        "title": "Internationalization",
+        "description": "Offer a multilingual platform that adapts to different European contexts."
+      },
+      {
+        "title": "Facilitate learning",
+        "description": "Improve the teaching process by incorporating clear references to job competencies."
+      },
+      {
+        "title": "Use of open technologies",
+        "description": "Develop the solution using free software and modern web technologies."
+      },
+      {
+        "title": "Continuous evaluation and improvement",
+        "description": "Monitor the use of the tool to implement constant improvements based on feedback."
+      }
+    ]
+  },
+   "team": {
+    "title": "Our Team",
+    "description": "A multidisciplinary team committed to developing innovative solutions for education.",
+    "members": [
+      {
+        "name": "Javier Antoranz",
+        "role": "Database Designer and Backend Developer"
+      },
+      {
+        "name": "Amle Martinez",
+        "role": "Interface Designer and Mobile Developer"
+      },
+      {
+        "name": "Antonio Orellano",
+        "role": "Team Leader and Backend Developer"
+      },
+      {
+        "name": "Joel Hernández",
+        "role": "Interface Designer and Web Developer"
+      }
+    ]
+  }
+}

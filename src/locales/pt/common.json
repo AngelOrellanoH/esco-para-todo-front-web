@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Início",
+    "forum": "Fórum",
+    "about": "Sobre",
+    "contact": "Contato",
+    "login": "Entrar",
+    "register": "Registrar",
+    "logout": "Sair",
+    "user": "Usuário"
+  },
+  "language": {
+    "es_short": "ES",
+    "en_short": "EN",
+    "pt_short": "PT",
+    "es_long": "Espanhol",
+    "en_long": "Inglês",
+    "pt_long": "Português"
+  },
+  "sr_only": {
+    "open_menu": "Abrir menu"
+  },
+  "footer": {
+    "description": "Plataforma educacional baseada na classificação ESCO para facilitar o acesso a habilidades e ocupações.",
+    "navigationTitle": "Navegação",
+    "navigationLinks": [
+      { "name": "Início", "href": "/" },
+      { "name": "Fórum", "href": "/foro" },
+      { "name": "Sobre", "href": "/about" },
+      { "name": "Contato", "href": "/contact" }
+    ],
+    "resourcesTitle": "Recursos",
+    "resourcesLinks": [
+      { "name": "ESCO Oficial", "href": "https://esco.ec.europa.eu/es" },
+      { "name": "Habilidades e Competências", "href": "https://ec.europa.eu/esco/portal/skill" },
+      { "name": "Ocupações", "href": "https://ec.europa.eu/esco/portal/occupation" }
+    ],
+    "legalTitle": "Legal",
+    "legalLinks": [
+      { "name": "Política de Privacidade", "href": "/privacy" },
+      { "name": "Termos e Condições", "href": "/terms" },
+      { "name": "Política de Cookies", "href": "/cookies" }
+    ],
+    "copyright": "ESCO para todos. Todos os direitos reservados."
+  }
+}
