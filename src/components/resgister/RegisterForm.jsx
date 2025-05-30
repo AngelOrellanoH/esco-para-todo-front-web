@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { setRegister } from "@/services/register-service"
+
+import { AuthService } from "@/services/auth-service" 
 import { useTranslation } from "react-i18next";
 
 
@@ -48,12 +49,13 @@ const RegisterForm = () => {
                     password: formData.password,
                     rol: "USER"
                 }
-                await setRegister(user)
+              
+                await AuthService.register(user) 
                 setIsSubmitted(true)
                 setError(false)
                 setTimeout(() => {
-                navigate("/login"); // Redirige a la página de login
-            }, 1500); // 1.5 segundos de retraso
+                    navigate("/login"); // Redirige a la página de login
+                }, 1500); // 1.5 segundos de retraso
             }catch(error){
                 console.error('Error al registrar al usuario:', error)
                 setIsSubmitted(false)
