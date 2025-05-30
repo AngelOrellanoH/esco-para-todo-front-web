@@ -1,13 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Globe } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 import { IonHeader, IonToolbar } from "@ionic/react";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
 import { useAuth } from "@/contexts/AuthContext";
+import LanguageSelector from "./ui/LanguageSelector";
 
 const Header = () => {
-  
   const { t, i18n } = useTranslation();
   const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,6 @@ const Header = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-  
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
@@ -32,7 +31,6 @@ const Header = () => {
         <IonToolbar>
           <div className="container mx-auto px-4 w-full">
             <div className="flex h-16 items-center justify-between">
-              {/* Logo */}
               <NavLink to="/" className="flex items-center">
                 <img src={logo} alt="ESCO para todos" className="h-10 w-auto" />
               </NavLink>
@@ -56,22 +54,10 @@ const Header = () => {
                 ))}
               </nav>
 
-              {/* Botones y Selector de Idioma (Desktop) */}
-              <div className="hidden md:flex items-center space-x-3">
-                {/* Selector de idioma */}
-                <div className="flex items-center space-x-1">
-                  <Globe className="w-4 h-4 text-gray-500 dark:text-gray-300" />
-                  <select
-                    value={i18n.language}
-                    onChange={(e) => changeLanguage(e.target.value)}
-                    className="text-sm border border-gray-300 rounded px-1 py-0.5 dark:bg-gray-900 dark:text-white"
-                  >
-                    {/* Usar t() para traducir las opciones, usando las nuevas claves de idioma */}
-                    <option value="es">{t("language.es_short")}</option>
-                    <option value="en">{t("language.en_short")}</option>
-                    <option value="pt">{t("language.pt_short")}</option>
-                  </select>
-                </div>
+              {/* Botones + Language Selector (Desktop) */}
+              <div className="hidden md:flex items-center space-x-3 relative">
+                {/* 🌐 Selector flotante */}
+                <LanguageSelector onLanguageChange={changeLanguage} />
 
                 {!isAuthenticated ? (
                   <>
@@ -103,14 +89,14 @@ const Header = () => {
                 )}
               </div>
 
-              {/* Menú móvil (Botón de alternancia) */}
+              {/* Menú móvil (Botón toggle) */}
               <div className="md:hidden">
                 <button
                   type="button"
-                  className="ml-2 inline-flex items-center justify-center !rounded-md p-2 !text-gray-700 hover:!bg-gray-100 hover:!text-gray-900 focus:!outline-none focus:!ring-2 focus:!ring-inset focus:!ring-blue-600 dark:!text-gray-300 dark:hover:!bg-gray-800 dark:hover:!text-gray-100"
+                  className="ml-2 inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                  <span className="sr-only">{t("sr_only.open_menu")}</span> {/* Traducido */}
+                  <span className="sr-only">{t("sr_only.open_menu")}</span>
                   {isMenuOpen ? (
                     <X className="block h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -123,7 +109,7 @@ const Header = () => {
         </IonToolbar>
       </IonHeader>
 
-      {/* Menú móvil (Contenido) */}
+      {/* Menú móvil desplegable */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-950 shadow-md z-50 relative">
           <div className="space-y-1 px-4 pb-4 pt-2">
@@ -141,19 +127,12 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
-            {/* Selector de idioma (Menú Móvil) */}
-            <div className="flex items-center space-x-1 px-3 py-2">
-                <Globe className="w-4 h-4 text-gray-500 dark:text-gray-300" />
-                <select
-                    value={i18n.language}
-                    onChange={(e) => changeLanguage(e.target.value)}
-                    className="text-sm border border-gray-300 rounded px-1 py-0.5 dark:bg-gray-900 dark:text-white w-full"
-                >
-                    <option value="es">{t("language.es_short")}</option>
-                    <option value="en">{t("language.en_short")}</option>
-                    <option value="pt">{t("language.pt_short")}</option>
-                </select>
+
+            {/* 🌐 Idiomas en menú móvil */}
+            <div className="px-3 py-2">
+              <LanguageSelector onLanguageChange={changeLanguage} isMobile={true} />
             </div>
+
             <div className="mt-4 flex flex-col space-y-2 px-3">
               {!isAuthenticated ? (
                 <>
