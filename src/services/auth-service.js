@@ -1,6 +1,8 @@
 // src/services/authService.js
 
-const API_BASE_URL = '/api/auth';
+import { API_BASE_URL } from '../config'; // Importa la URL base
+
+const AUTH_ENDPOINT = `${API_BASE_URL}api/auth`; // Endpoint completo al backend
 const TOKEN_KEY = 'authToken';
 const USER_DATA_KEY = 'userData'; 
 
@@ -14,7 +16,6 @@ export const AuthService = {
   getToken: () => {
     return sessionStorage.getItem(TOKEN_KEY);
   },
-
 
   setUserData: (userData) => {
     sessionStorage.setItem(USER_DATA_KEY, JSON.stringify(userData));
@@ -38,7 +39,7 @@ export const AuthService = {
 
   register: async (user) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/register`, {
+      const response = await fetch(`${AUTH_ENDPOINT}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
@@ -62,7 +63,6 @@ export const AuthService = {
         throw new Error(errorMessage);
       }
 
-      // El registro devuelve un CrearUsuarioResponse
       if (contentType && contentType.includes('application/json')) {
         const userData = JSON.parse(rawBody);
         return userData;
@@ -76,10 +76,9 @@ export const AuthService = {
     }
   },
 
-  // Función de Login: ajustada para manejar la respuesta del backend
   login: async (email, password) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/login`, {
+      const response = await fetch(`${AUTH_ENDPOINT}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -103,7 +102,6 @@ export const AuthService = {
         throw new Error(errorMessage);
       }
 
-      // El login exitoso devuelve un JSON con SOLO el 'token'
       if (contentType && contentType.includes('application/json')) {
         const data = JSON.parse(rawBody);
         if (data.token) {
