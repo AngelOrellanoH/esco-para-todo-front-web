@@ -12,6 +12,7 @@ import Login from './pages/public/login/page'
 import Register from './pages/public/register/page'
 import MainLayout from './layouts/mainLayout'
 import ForoDetails from './components/foro/ForoDetails'
+import Perfil from './pages/public/perfil/page'
 
 // Configuración del router de react-router-dom v6
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: '/contact', element: <Contact /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
+       { path: '/perfil', element: <Perfil /> },
     ],
   },
 ])
