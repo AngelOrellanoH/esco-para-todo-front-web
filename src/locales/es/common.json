@@ -7,7 +7,8 @@
     "login": "Iniciar sesión",
     "register": "Registrarse",
     "logout": "Cerrar sesión",
-    "user": "Usuario"
+    "user": "Usuario",
+    "edit_profile": "Editar Perfil"
   },
   "language": {
     "es_short": "ES",

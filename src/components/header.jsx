@@ -35,7 +35,7 @@ const Header = () => {
                 <img src={logo} alt="ESCO para todos" className="h-10 w-auto" />
               </NavLink>
 
-              {/* Navegación (Desktop) */}
+              {/* Desktop Nav */}
               <nav className="hidden md:flex items-center space-x-6">
                 {navigation.map((item) => (
                   <NavLink
@@ -43,9 +43,7 @@ const Header = () => {
                     to={item.href}
                     className={({ isActive }) =>
                       `text-sm font-medium transition-colors hover:!text-blue-600 ${
-                        isActive
-                          ? "!text-blue-600"
-                          : "!text-gray-700 dark:!text-gray-300"
+                        isActive ? "!text-blue-600" : "!text-gray-700 dark:!text-gray-300"
                       }`
                     }
                   >
@@ -54,9 +52,8 @@ const Header = () => {
                 ))}
               </nav>
 
-              {/* Botones + Language Selector (Desktop) */}
+              {/* Desktop buttons + language */}
               <div className="hidden md:flex items-center space-x-3 relative">
-                {/* 🌐 Selector flotante */}
                 <LanguageSelector onLanguageChange={changeLanguage} />
 
                 {!isAuthenticated ? (
@@ -79,6 +76,12 @@ const Header = () => {
                     <div className="text-sm text-gray-700 dark:text-gray-300 py-1.5">
                       👤 {user?.email || t("nav.user")}
                     </div>
+                    <NavLink
+                      to="/perfil"
+                      className="text-sm text-blue-600 dark:text-blue-400 border border-blue-500 px-4 py-1.5 rounded hover:bg-blue-50 dark:hover:bg-blue-900"
+                    >
+                      {t("nav.edit_profile")}
+                    </NavLink>
                     <button
                       onClick={logout}
                       className="bg-blue-600 text-white text-sm px-4 py-1.5 rounded hover:bg-blue-700"
@@ -89,7 +92,7 @@ const Header = () => {
                 )}
               </div>
 
-              {/* Menú móvil (Botón toggle) */}
+              {/* Mobile toggle */}
               <div className="md:hidden">
                 <button
                   type="button"
@@ -109,7 +112,7 @@ const Header = () => {
         </IonToolbar>
       </IonHeader>
 
-      {/* Menú móvil desplegable */}
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-950 shadow-md z-50 relative">
           <div className="space-y-1 px-4 pb-4 pt-2">
@@ -128,7 +131,6 @@ const Header = () => {
               </NavLink>
             ))}
 
-            {/* 🌐 Idiomas en menú móvil */}
             <div className="px-3 py-2">
               <LanguageSelector onLanguageChange={changeLanguage} isMobile={true} />
             </div>
@@ -152,6 +154,11 @@ const Header = () => {
                   <div className="text-sm text-gray-700 dark:text-gray-300 px-2">
                     👤 {user?.email || t("nav.user")}
                   </div>
+                  <NavLink to="/perfil" onClick={() => setIsMenuOpen(false)}>
+                    <button className="w-full border border-blue-500 text-blue-600 text-sm px-4 py-2 rounded hover:bg-blue-50 dark:hover:bg-blue-900 dark:text-blue-400">
+                      {t("nav.edit_profile")}
+                    </button>
+                  </NavLink>
                   <button
                     onClick={() => {
                       logout();
