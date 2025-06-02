@@ -33,7 +33,7 @@ const LoginForm = () => {
 
     try {
       await login(email, password);
-      console.log("Login exitoso, redirigiendo...");
+      console.log("Login exitosos, redirigiendo...");
       navigate("/", { replace: true });
     } catch (err) {
       console.error("Error en el componente LoginForm:", err.message);
