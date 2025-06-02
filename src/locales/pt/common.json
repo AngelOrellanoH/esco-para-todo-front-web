@@ -9,7 +9,8 @@
     "logout": "Sair",
     "user": "Usuário",
     "edit_profile": "Editar Perfil",
-     "view_profile": "Ver Perfil"
+    "view_profile": "Ver Perfil",
+    "usuarios":"Usuários"
   },
   "language": {
     "es_short": "ES",

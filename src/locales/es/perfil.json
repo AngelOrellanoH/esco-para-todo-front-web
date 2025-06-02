@@ -34,10 +34,14 @@
       "loading_user_data": "Cargando datos del usuario...",
       "unknown_error": "Error desconocido",
       "error_updating_profile": "Error al actualizar el perfil:"
+    },
+    "suggestions":{
+      "title": "Ocupaciones Sugeridas",
+      "none": "No existen Ocupaciones sugeridas"
     }
   },
   "roles": {
     "administrador": "Administrador",
-    "usuario": "Usuario"
+    "USER": "Usuario"
   }
 }

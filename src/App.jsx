@@ -13,7 +13,8 @@ import Register from './pages/public/register/page'
 import MainLayout from './layouts/mainLayout'
 import ForoDetails from './components/foro/ForoDetails'
 import Perfil from './pages/public/perfil/page'
-
+import Usuarios from './pages/public/vista_usuarios/page'
+import UsuarioVista from './pages/public/vista_usuarios/page-detalle'
 // Configuración del router de react-router-dom v6
 const router = createBrowserRouter([
   {
@@ -27,7 +28,10 @@ const router = createBrowserRouter([
       { path: '/contact', element: <Contact /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
-       { path: '/perfil', element: <Perfil /> },
+      { path: '/perfil', element: <Perfil /> },
+      { path: '/usuarios', element: <Usuarios />},
+      { path: '/usuarios/:id', element: <UsuarioVista /> },
+      {}
     ],
   },
 ])

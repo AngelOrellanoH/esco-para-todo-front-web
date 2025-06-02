@@ -9,7 +9,8 @@
     "logout": "Logout",
     "user": "User",
     "edit_profile": "Edit Profile",
-    "view_profile": "View Profile"
+    "view_profile": "View Profile",
+    "usuarios":"Usuarios"
   },
   "language": {
     "es_short": "ES",

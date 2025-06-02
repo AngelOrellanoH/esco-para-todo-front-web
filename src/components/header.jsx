@@ -1,4 +1,3 @@
-// src/components/header.jsx 
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -30,8 +29,6 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    // Después de cerrar sesión, si el usuario estaba en /perfil, redirigir a la home.
-    // De lo contrario, recargar la página actual para limpiar el estado.
     if (pathname === "/perfil") {
       navigate("/", { replace: true });
     } else {
@@ -49,7 +46,6 @@ const Header = () => {
                 <img src={logo} alt="ESCO para todos" className="h-10 w-auto" />
               </NavLink>
 
-              {/* Desktop Nav */}
               <nav className="hidden md:flex items-center space-x-6">
                 {navigation.map((item) => (
                   <NavLink
@@ -64,9 +60,20 @@ const Header = () => {
                     {item.name}
                   </NavLink>
                 ))}
+                {isAuthenticated && (
+                  <NavLink
+                    to="/usuarios"
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors hover:!text-blue-600 ${
+                        isActive ? "!text-blue-600" : "!text-gray-700 dark:!text-gray-300"
+                      }`
+                    }
+                  >
+                    {t("nav.usuarios")}
+                  </NavLink>
+                )}
               </nav>
 
-              {/* Desktop buttons + language */}
               <div className="hidden md:flex items-center space-x-3 relative">
                 <LanguageSelector onLanguageChange={changeLanguage} />
 
@@ -86,12 +93,18 @@ const Header = () => {
                     </NavLink>
                   </>
                 ) : (
-
-                  <UserDropdown user={user} onLogout={handleLogout} />
+                  <>
+                    <NavLink
+                      to="/perfil"
+                      className="text-sm border border-gray-300 px-3 py-1.5 rounded dark:text-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      {t("nav.edit_profile")}
+                    </NavLink>
+                    <UserDropdown user={user} onLogout={handleLogout} />
+                  </>
                 )}
               </div>
 
-              {/* Mobile toggle */}
               <div className="md:hidden">
                 <button
                   type="button"
@@ -111,7 +124,6 @@ const Header = () => {
         </IonToolbar>
       </IonHeader>
 
-      {/* Mobile menu (mantener la estructura actual para el menú móvil) */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-950 shadow-md z-50 relative">
           <div className="space-y-1 px-4 pb-4 pt-2">
@@ -129,6 +141,14 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
+
+            {isAuthenticated && (
+              <NavLink to="/usuarios" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full border border-gray-300 px-4 py-2 text-sm rounded dark:border-gray-600 dark:hover:bg-gray-800">
+                  {t("nav.users")}
+                </button>
+              </NavLink>
+            )}
 
             <div className="px-3 py-2">
               <LanguageSelector onLanguageChange={changeLanguage} isMobile={true} />
@@ -154,8 +174,8 @@ const Header = () => {
                     👤 {user?.nombre || t("nav.user")}
                   </div>
                   <NavLink to="/perfil" onClick={() => setIsMenuOpen(false)}>
-                    <button className="w-full border border-blue-500 text-blue-600 text-sm px-4 py-2 rounded hover:bg-blue-50 dark:hover:bg-blue-900 dark:text-blue-400">
-                      {t("nav.view_profile")}
+                    <button className="w-full border border-gray-300 px-4 py-2 text-sm rounded dark:border-gray-600 dark:hover:bg-gray-800">
+                      {t("nav.edit_profile")}
                     </button>
                   </NavLink>
                   <button

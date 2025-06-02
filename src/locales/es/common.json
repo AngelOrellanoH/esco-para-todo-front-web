@@ -9,7 +9,8 @@
     "logout": "Cerrar sesión",
     "user": "Usuario",
     "edit_profile": "Editar Perfil",
-     "view_profile": "Ver Perfil"
+     "view_profile": "Ver Perfil",
+     "usuarios":"Users"
   },
   "language": {
     "es_short": "ES",

@@ -51,5 +51,38 @@ export const DatosService = {
         console.error('Error al recuperar el perfil del usuario:', error);
         throw error;
     }
-  }
+  },
+  fetchAllUsers :  async () => {
+     const token = AuthService.getToken();
+    if (!token) {
+        throw new Error("Token no disponible. El usuario no está autenticado.");
+    }
+
+    const response = await fetch(`${API_BASE_URL}/datos/usuarios`, { 
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    if (!response.ok) throw new Error("No se pudieron obtener los usuarios");
+    return response.json();
+  },
+  fetchUsuarioPorId: async (id) => {
+    const token = AuthService.getToken();
+    if (!token) {
+        throw new Error("Token no disponible. El usuario no está autenticado.");
+    }
+
+    const response = await fetch(`${API_BASE_URL}/datos/${id}`, { 
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+
+    if (!response.ok) throw new Error("No se pudo obtener el usuario");
+    console.log(response);
+    return response.json();
+}
+
 };
