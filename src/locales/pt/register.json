@@ -13,6 +13,8 @@
     "passwordMismatch": "As palavras-passe não coincidem.",
     "registrationSuccess": "Registo bem-sucedido. A redirecionar...",
     "alreadyHaveAccount": "Já tem uma conta?",
-    "loginLink": "Iniciar sessão"
+    "loginLink": "Iniciar sessão",
+    "genericRegistrationError": "Erro ao registrar. Por favor, tente novamente.",
+    "loadingMessage": "Registrando usuário..."
   }
 }

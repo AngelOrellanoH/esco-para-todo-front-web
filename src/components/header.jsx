@@ -74,7 +74,7 @@ const Header = () => {
                 ) : (
                   <>
                     <div className="text-sm text-gray-700 dark:text-gray-300 py-1.5">
-                      👤 {user?.email || t("nav.user")}
+                      👤 {user?.nombre || t("nav.user")}
                     </div>
                     <NavLink
                       to="/perfil"
@@ -84,7 +84,7 @@ const Header = () => {
                     </NavLink>
                     <button
                       onClick={logout}
-                      className="bg-blue-600 text-white text-sm px-4 py-1.5 rounded hover:bg-blue-700"
+                      className="text-sm text-red-600 dark:text-red-400 border border-red-500 px-4 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900"
                     >
                       {t("nav.logout")}
                     </button>
@@ -164,7 +164,7 @@ const Header = () => {
                       logout();
                       setIsMenuOpen(false);
                     }}
-                    className="w-full bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+                      className="text-sm text-red-600 dark:text-red-400 border border-red-500 px-4 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900"
                   >
                     {t("nav.logout")}
                   </button>

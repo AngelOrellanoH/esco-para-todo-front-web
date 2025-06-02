@@ -1,6 +1,8 @@
 // src/services/authService.js
 
-const API_BASE_URL = '/api/auth';
+// Importa API_BASE_URL del archivo de configuración global
+import { API_BASE_URL } from '../config';
+
 const TOKEN_KEY = 'authToken';
 const USER_DATA_KEY = 'userData'; 
 
@@ -38,7 +40,7 @@ export const AuthService = {
 
   register: async (user) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/register`, {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
@@ -79,7 +81,7 @@ export const AuthService = {
   // Función de Login: ajustada para manejar la respuesta del backend
   login: async (email, password) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/login`, {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -103,11 +105,12 @@ export const AuthService = {
         throw new Error(errorMessage);
       }
 
-      // El login exitoso devuelve un JSON con SOLO el 'token'
+        // El login exitoso ahora devuelve un JSON con 'token' y 'usuario'
       if (contentType && contentType.includes('application/json')) {
         const data = JSON.parse(rawBody);
-        if (data.token) {
-          AuthService.setToken(data.token); 
+        if (data.token && data.usuario) { 
+          AuthService.setToken(data.token);
+          AuthService.setUserData(data.usuario);
         }
         return data;
       } else {

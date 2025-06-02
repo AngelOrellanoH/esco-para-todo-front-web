@@ -1,9 +1,12 @@
-const API_BASE_URL = '/api/datos';
+// src/services/DatosService.js 
+import { API_BASE_URL } from '../config'; 
+
 const TOKEN_KEY = 'authToken';
 const USER_DATA_KEY = 'userData'; 
-import { AuthService } from "./auth-service";
-export const DatosService = {
 
+import { AuthService } from "./auth-service";
+
+export const DatosService = {
   fetchUserProfile: async () => {
     try {
         const token = AuthService.getToken();
@@ -11,7 +14,7 @@ export const DatosService = {
             throw new Error("Token no disponible. El usuario no está autenticado.");
         }
 
-        const response = await fetch(`${API_BASE_URL}`, {
+        const response = await fetch(`${API_BASE_URL}/datos`, { 
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -48,6 +51,5 @@ export const DatosService = {
         console.error('Error al recuperar el perfil del usuario:', error);
         throw error;
     }
-}
-
+  }
 };

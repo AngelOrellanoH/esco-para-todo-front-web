@@ -10,6 +10,7 @@
     "loginButton": "Log in",
     "noAccountPrompt": "Don't have an account?",
     "createAccountLink": "Create account",
-    "loadingMessage": "Logging in..."
+    "loadingMessage": "Logging in...",
+    "genericLoginError": "Error logging in. Please try again."
   }
 }

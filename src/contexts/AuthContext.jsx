@@ -1,6 +1,13 @@
 // src/contexts/AuthContext.jsx
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react'; 
-import { AuthService } from '../services/auth-service';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
+import { AuthService } from "../services/auth-service";
 
 // 1. Crear el Contexto
 const AuthContext = createContext(null);
@@ -8,7 +15,7 @@ const AuthContext = createContext(null);
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };
@@ -28,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     if (storedToken) {
       setToken(storedToken);
       setIsAuthenticated(true);
-      setUser(storedUser || { email: 'Usuario' });
+      setUser(storedUser || { email: "Usuario" });
     } else {
       AuthService.clearSession();
       setToken(null);
@@ -44,15 +51,22 @@ export const AuthProvider = ({ children }) => {
 
   const login = useCallback(async (email, password) => {
     setLoading(true);
-    try {
+   try {
       const response = await AuthService.login(email, password);
       const newToken = AuthService.getToken();
-      setToken(newToken);
-      setIsAuthenticated(true);
+      const newUserData = AuthService.getUserData();
 
-      const userData = { email: email };
-      AuthService.setUserData(userData);
-      setUser(userData);
+      if (newToken && newUserData) { 
+          setToken(newToken);
+          setIsAuthenticated(true);
+          setUser(newUserData); 
+      } else {
+          setToken(response.token);
+          setIsAuthenticated(true);
+          setUser(response.usuario);
+          AuthService.setToken(response.token);
+          AuthService.setUserData(response.usuario);
+      }
 
       return response;
     } catch (error) {
@@ -64,7 +78,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []); 
+  }, []);
 
   const logout = useCallback(() => {
     AuthService.clearSession();

@@ -13,6 +13,8 @@
     "passwordMismatch": "Passwords do not match.",
     "registrationSuccess": "Registration successful. Redirecting...",
     "alreadyHaveAccount": "Already have an account?",
-    "loginLink": "Log in"
+    "loginLink": "Log in",
+    "genericRegistrationError": "Error registering. Please try again.",
+    "loadingMessage": "Registering user..."
   }
 }
