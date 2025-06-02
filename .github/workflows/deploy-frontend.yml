@@ -30,3 +30,4 @@ jobs:
           app-name: escoparatodos
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: ./dist
+          scm-do-build-during-deployment: false
