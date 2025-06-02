@@ -11,6 +11,7 @@
     "noAccountPrompt": "Don't have an account?",
     "createAccountLink": "Create account",
     "loadingMessage": "Logging in...",
-    "genericLoginError": "Error logging in. Please try again."
+    "genericLoginError": "Error logging in. Please try again.",
+    "unexpectedError": "An unexpected error occurred. Please try again later."
   }
 }

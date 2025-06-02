@@ -15,6 +15,7 @@
     "alreadyHaveAccount": "Já tem uma conta?",
     "loginLink": "Iniciar sessão",
     "genericRegistrationError": "Erro ao registrar. Por favor, tente novamente.",
-    "loadingMessage": "Registrando usuário..."
+    "loadingMessage": "Registrando usuário...",
+    "unexpectedError": "Ocorreu um erro inesperado ao registar."
   }
 }

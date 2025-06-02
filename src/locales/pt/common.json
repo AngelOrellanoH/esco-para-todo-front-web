@@ -8,7 +8,8 @@
     "register": "Registrar",
     "logout": "Sair",
     "user": "Usuário",
-    "edit_profile": "Editar Perfil"
+    "edit_profile": "Editar Perfil",
+     "view_profile": "Ver Perfil"
   },
   "language": {
     "es_short": "ES",

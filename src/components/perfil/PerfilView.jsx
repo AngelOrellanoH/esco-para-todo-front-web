@@ -1,3 +1,4 @@
+// src/components/PerfilView.jsx
 import {
   IonCard,
   IonCardContent,
@@ -11,7 +12,7 @@ import {
   IonChip,
   IonAccordionGroup,
   IonAccordion,
-  IonButton
+  IonButton,
 } from "@ionic/react";
 import {
   mailOutline,
@@ -21,12 +22,15 @@ import {
   chatboxEllipses,
   timeOutline,
 } from "ionicons/icons";
-import ModalAgregarCompetencia from './ModalAgregarCompetencia'; 
-import React, { useState } from 'react';
+import ModalAgregarCompetencia from "./ModalAgregarCompetencia";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
+const PerfilView = ({ usuario, recargarDatosUsuario }) => {
+  const { t } = useTranslation('profile');
 
-const PerfilView = ({ usuario,recargarDatosUsuario }) => {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <div style={{ padding: "1.5rem" }}>
       {/* -------- PERFIL -------- */}
@@ -42,7 +46,11 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
             />
           </IonAvatar>
           <IonCardTitle
-            style={{ fontSize: "1.6rem", fontWeight: 600, marginBottom: "0.5rem" }}
+            style={{
+              fontSize: "1.6rem",
+              fontWeight: 600,
+              marginBottom: "0.5rem",
+            }}
           >
             {usuario.nombre}
           </IonCardTitle>
@@ -52,8 +60,9 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
               {usuario.email}
             </p>
             <IonChip color="primary" style={{ fontSize: "0.9rem" }}>
-              <IonIcon icon={shieldCheckmark} />&nbsp;
-              <IonLabel>{usuario.rol}</IonLabel>
+              <IonIcon icon={shieldCheckmark} />
+              &nbsp;
+              <IonLabel>{t(`roles.${usuario.rol}`)}</IonLabel>
             </IonChip>
           </IonText>
         </IonCardContent>
@@ -71,12 +80,16 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
               style={{ marginRight: "0.75rem" }}
             />
             <IonLabel style={{ fontSize: "1.2rem", fontWeight: "500" }}>
-              Competencias
+              {t("profile.competencies.title")}
             </IonLabel>
           </IonItem>
           <div slot="content" style={{ padding: "1.5rem" }}>
-            <IonButton expand="block" fill="outline" onClick={() => setShowModal(true)}>
-              Añadir Competencia
+            <IonButton
+              expand="block"
+              fill="outline"
+              onClick={() => setShowModal(true)}
+            >
+              {t("profile.competencies.add_button")}
             </IonButton>
             <ModalAgregarCompetencia
               isOpen={showModal}
@@ -85,7 +98,7 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
               usuario={usuario}
             />
             {usuario.competencias.length === 0 ? (
-              <IonText color="medium">No hay competencias registradas.</IonText>
+              <IonText color="medium">{t("profile.competencies.no_registered")}</IonText>
             ) : (
               <IonList lines="none">
                 {usuario.competencias.map((c) => (
@@ -163,12 +176,12 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
               style={{ marginRight: "0.75rem" }}
             />
             <IonLabel style={{ fontSize: "1.2rem", fontWeight: "500" }}>
-              Peticiones a ESCO-GPT
+              {t("profile.requests.title")}
             </IonLabel>
           </IonItem>
           <div slot="content" style={{ padding: "1.5rem" }}>
             {usuario.historico.length === 0 ? (
-              <IonText color="medium">Sin historial disponible.</IonText>
+              <IonText color="medium">{t("profile.requests.no_history")}</IonText>
             ) : (
               <IonList lines="none">
                 {usuario.historico.map((h) => (
@@ -187,24 +200,35 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
                       icon={documentsOutline}
                       slot="start"
                       color="warning"
-                      style={{ fontSize: "1.75rem", marginTop: "0.25rem", marginRight: "1rem" }}
+                      style={{
+                        fontSize: "1.75rem",
+                        marginTop: "0.25rem",
+                        marginRight: "1rem",
+                      }}
                     />
                     <IonLabel>
-                      <h2 style={{ fontSize: "1rem", fontWeight: "bold", marginBottom: "0.4rem" }}>
+                      <h2
+                        style={{
+                          fontSize: "1rem",
+                          fontWeight: "bold",
+                          marginBottom: "0.4rem",
+                        }}
+                      >
                         📥 {h.input}
                       </h2>
                       <p style={{ marginBottom: "0.3rem" }}>
-                        <strong>Modelo:</strong>{" "}
+                        <strong>{t("profile.requests.model")}:</strong>{" "}
                         <IonText color="primary" style={{ fontWeight: 500 }}>
                           {h.model}
                         </IonText>
                       </p>
                       <p style={{ marginBottom: "0.3rem" }}>
-                        <strong>Resultados:</strong> {h.numResults} &nbsp;|&nbsp;
-                        <strong>Tiempo:</strong> {h.timeSeconds.toFixed(2)}s
+                        <strong>{t("profile.requests.results")}:</strong> {h.numResults}{" "}
+                        &nbsp;|&nbsp;
+                        <strong>{t("profile.requests.time")}:</strong> {h.timeSeconds.toFixed(2)}s
                       </p>
                       <p style={{ marginBottom: "0.3rem" }}>
-                        <strong>Avg. Distancia:</strong>{" "}
+                        <strong>{t("profile.requests.avg_distance")}:</strong>{" "}
                         <IonChip color="medium" style={{ fontSize: "0.75rem" }}>
                           <IonLabel>{h.avgDistance.toFixed(3)}</IonLabel>
                         </IonChip>
@@ -234,12 +258,14 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
               style={{ marginRight: "0.75rem" }}
             />
             <IonLabel style={{ fontSize: "1.2rem", fontWeight: "500" }}>
-              Foros Suscritos
+              {t("profile.forums.title")}
             </IonLabel>
           </IonItem>
           <div slot="content" style={{ padding: "1.5rem" }}>
             {usuario.forosSuscritos.length === 0 ? (
-              <IonText color="medium">No estás suscrito a ningún foro aún.</IonText>
+              <IonText color="medium">
+                {t("profile.forums.no_subscribed")}
+              </IonText>
             ) : (
               <IonList lines="none">
                 {usuario.forosSuscritos.map((foro) => (
@@ -258,21 +284,39 @@ const PerfilView = ({ usuario,recargarDatosUsuario }) => {
                       icon={chatboxEllipses}
                       slot="start"
                       color="success"
-                      style={{ fontSize: "1.75rem", marginTop: "0.25rem", marginRight: "1rem" }}
+                      style={{
+                        fontSize: "1.75rem",
+                        marginTop: "0.25rem",
+                        marginRight: "1rem",
+                      }}
                     />
                     <IonLabel>
-                      <h2 style={{ fontSize: "1rem", fontWeight: "bold", marginBottom: "0.4rem" }}>
+                      <h2
+                        style={{
+                          fontSize: "1rem",
+                          fontWeight: "bold",
+                          marginBottom: "0.4rem",
+                        }}
+                      >
                         {foro.titulo}
                       </h2>
                       <IonText color="medium">
-                        <p style={{ fontSize: "0.95rem", marginBottom: "0.5rem" }}>
+                        <p
+                          style={{
+                            fontSize: "0.95rem",
+                            marginBottom: "0.5rem",
+                          }}
+                        >
                           {foro.descripcion}
                         </p>
                       </IonText>
                       <p>
-                        <IonIcon icon={timeOutline} style={{ marginRight: "0.3rem" }} />
+                        <IonIcon
+                          icon={timeOutline}
+                          style={{ marginRight: "0.3rem" }}
+                        />
                         <small>
-                          Última actualización:{" "}
+                          {t("profile.forums.last_update")}:{" "}
                           {new Date(foro.lastUpdate).toLocaleString()}
                         </small>
                       </p>

@@ -1,4 +1,5 @@
-import { NavLink, useLocation } from "react-router-dom";
+// src/components/header.jsx 
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { IonHeader, IonToolbar } from "@ionic/react";
@@ -6,12 +7,14 @@ import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
 import { useAuth } from "@/contexts/AuthContext";
 import LanguageSelector from "./ui/LanguageSelector";
+import UserDropdown from "./ui/UserDropdown";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -24,6 +27,17 @@ const Header = () => {
     { name: t("nav.about"), href: "/about" },
     { name: t("nav.contact"), href: "/contact" },
   ];
+
+  const handleLogout = () => {
+    logout();
+    // Después de cerrar sesión, si el usuario estaba en /perfil, redirigir a la home.
+    // De lo contrario, recargar la página actual para limpiar el estado.
+    if (pathname === "/perfil") {
+      navigate("/", { replace: true });
+    } else {
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -72,23 +86,8 @@ const Header = () => {
                     </NavLink>
                   </>
                 ) : (
-                  <>
-                    <div className="text-sm text-gray-700 dark:text-gray-300 py-1.5">
-                      👤 {user?.nombre || t("nav.user")}
-                    </div>
-                    <NavLink
-                      to="/perfil"
-                      className="text-sm text-blue-600 dark:text-blue-400 border border-blue-500 px-4 py-1.5 rounded hover:bg-blue-50 dark:hover:bg-blue-900"
-                    >
-                      {t("nav.edit_profile")}
-                    </NavLink>
-                    <button
-                      onClick={logout}
-                      className="text-sm text-red-600 dark:text-red-400 border border-red-500 px-4 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900"
-                    >
-                      {t("nav.logout")}
-                    </button>
-                  </>
+
+                  <UserDropdown user={user} onLogout={handleLogout} />
                 )}
               </div>
 
@@ -112,7 +111,7 @@ const Header = () => {
         </IonToolbar>
       </IonHeader>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (mantener la estructura actual para el menú móvil) */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-950 shadow-md z-50 relative">
           <div className="space-y-1 px-4 pb-4 pt-2">
@@ -151,20 +150,20 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 px-2">
-                    👤 {user?.email || t("nav.user")}
+                  <div className="text-sm text-gray-700 dark:text-gray-300 px-2 py-1.5">
+                    👤 {user?.nombre || t("nav.user")}
                   </div>
                   <NavLink to="/perfil" onClick={() => setIsMenuOpen(false)}>
                     <button className="w-full border border-blue-500 text-blue-600 text-sm px-4 py-2 rounded hover:bg-blue-50 dark:hover:bg-blue-900 dark:text-blue-400">
-                      {t("nav.edit_profile")}
+                      {t("nav.view_profile")}
                     </button>
                   </NavLink>
                   <button
                     onClick={() => {
-                      logout();
+                      handleLogout();
                       setIsMenuOpen(false);
                     }}
-                      className="text-sm text-red-600 dark:text-red-400 border border-red-500 px-4 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900"
+                    className="w-full text-sm text-red-600 dark:text-red-400 border border-red-500 px-4 py-2 rounded hover:bg-red-50 dark:hover:bg-red-900"
                   >
                     {t("nav.logout")}
                   </button>

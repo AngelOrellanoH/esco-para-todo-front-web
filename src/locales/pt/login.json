@@ -11,6 +11,7 @@
     "noAccountPrompt": "Não tem uma conta?",
     "createAccountLink": "Criar conta",
     "loadingMessage": "A iniciar sessão...",
-    "genericLoginError": "Erro ao iniciar sessão. Por favor, tente novamente."
+    "genericLoginError": "Erro ao iniciar sessão. Por favor, tente novamente.",
+    "unexpectedError": "Ocorreu um erro inesperado. Tente novamente mais tarde."
   }
 }

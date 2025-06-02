@@ -1,0 +1,43 @@
+{
+  "profile": {
+    "competencies": {
+      "title": "Competencias",
+      "add_button": "Añadir Competencia",
+      "no_registered": "No hay competencias registradas.",
+      "modal": {
+        "title": "Añadir Competencias",
+        "search_placeholder": "Buscar competencia por nombre",
+        "filter_placeholder": "Filtrar por tipo",
+        "save_button": "Guardar",
+        "no_competencies_found": "No se encontraron competencias.",
+        "success_message": "Competencias añadidas con éxito.",
+        "error_loading": "Error al cargar competencias.",
+        "error_adding": "Error al añadir competencias."
+      }
+    },
+    "requests": {
+      "title": "Peticiones a ESCO-GPT",
+      "no_history": "Sin historial disponible.",
+      "model": "Modelo",
+      "results": "Resultados",
+      "time": "Tiempo",
+      "avg_distance": "Avg. Distancia"
+    },
+    "forums": {
+      "title": "Foros Suscritos",
+      "no_subscribed": "No estás suscrito a ningún foro aún.",
+      "last_update": "Última actualización"
+    },
+    "general": {
+      "email_label": "Email",
+      "role_label": "Rol",
+      "loading_user_data": "Cargando datos del usuario...",
+      "unknown_error": "Error desconocido",
+      "error_updating_profile": "Error al actualizar el perfil:"
+    }
+  },
+  "roles": {
+    "administrador": "Administrador",
+    "usuario": "Usuario"
+  }
+}

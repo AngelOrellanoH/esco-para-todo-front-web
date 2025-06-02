@@ -1,4 +1,4 @@
-// src/components/LoginForm.jsx 
+// src/components/LoginForm.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ import { IonLoading } from "@ionic/react";
 import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
-  const { t } = useTranslation('login');
+  const { t } = useTranslation("login");
   const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
@@ -30,15 +30,20 @@ const LoginForm = () => {
     e.preventDefault();
     setLoading(true);
     setError(null); // Limpiar errores anteriores
-    console.log("Login attempt with:", { email, password });
 
+    console.log("Login attempt with:", { email, password });
+    
     try {
-      await login(email, password);
+      const result = await login(email, password);
+      if (!result || !result.token) {
+        throw new Error(t("loginForm.invalidCredentials"));
+      }
       console.log("Login exitoso, redirigiendo...");
       navigate("/", { replace: true });
     } catch (err) {
+      const fallback = t("loginForm.genericLoginError");
       console.error("Error en el componente LoginForm:", err.message);
-      setError(err.message || t('loginForm.genericLoginError'));
+      setError(err?.message || fallback);
     } finally {
       setLoading(false);
     }
@@ -48,20 +53,20 @@ const LoginForm = () => {
     <Card className="w-full max-w-md !border !bg-white dark:!bg-gray-900 dark:!text-white">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center !text-[#003060]">
-          {t('loginForm.title')}
+          {t("loginForm.title")}
         </CardTitle>
         <CardDescription className="text-center !text-gray-600 dark:!text-gray-400">
-          {t('loginForm.description')}
+          {t("loginForm.description")}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">{t('loginForm.emailLabel')}</Label>
+            <Label htmlFor="email">{t("loginForm.emailLabel")}</Label>
             <Input
               id="email"
               type="email"
-              placeholder={t('loginForm.emailPlaceholder')}
+              placeholder={t("loginForm.emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -69,12 +74,12 @@ const LoginForm = () => {
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label htmlFor="password">{t('loginForm.passwordLabel')}</Label>
+              <Label htmlFor="password">{t("loginForm.passwordLabel")}</Label>
               <span
                 onClick={() => navigate("/forgot-password")}
                 className="text-sm text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
               >
-                {t('loginForm.forgotPassword')}
+                {t("loginForm.forgotPassword")}
               </span>
             </div>
             <Input
@@ -88,24 +93,24 @@ const LoginForm = () => {
           {/* Mostrar el error dinámicamente */}
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <Button type="submit" className="w-full">
-            {t('loginForm.loginButton')}
+            {t("loginForm.loginButton")}
           </Button>
         </form>
       </CardContent>
       <CardFooter className="flex flex-col space-y-4">
         <div className="text-center text-sm">
-          {t('loginForm.noAccountPrompt')}{" "}
+          {t("loginForm.noAccountPrompt")}{" "}
           <span
             onClick={() => navigate("/register")}
             className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
           >
-            {t('loginForm.createAccountLink')}
+            {t("loginForm.createAccountLink")}
           </span>
         </div>
       </CardFooter>
       <IonLoading
         isOpen={loading}
-        message={t('loginForm.loadingMessage')}
+        message={t("loginForm.loadingMessage")}
         duration={0}
       />
     </Card>

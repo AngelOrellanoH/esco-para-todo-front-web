@@ -8,7 +8,8 @@
     "register": "Register",
     "logout": "Logout",
     "user": "User",
-    "edit_profile": "Edit Profile"
+    "edit_profile": "Edit Profile",
+    "view_profile": "View Profile"
   },
   "language": {
     "es_short": "ES",
@@ -21,27 +22,56 @@
   "sr_only": {
     "open_menu": "Open menu"
   },
-  
   "footer": {
     "description": "Educational platform based on the ESCO classification to facilitate access to skills and occupations.",
     "navigationTitle": "Navigation",
     "navigationLinks": [
-      { "name": "Home", "href": "/" },
-      { "name": "Forum", "href": "/foro" },
-      { "name": "About", "href": "/about" },
-      { "name": "Contact", "href": "/contact" }
+      {
+        "name": "Home",
+        "href": "/"
+      },
+      {
+        "name": "Forum",
+        "href": "/foro"
+      },
+      {
+        "name": "About",
+        "href": "/about"
+      },
+      {
+        "name": "Contact",
+        "href": "/contact"
+      }
     ],
     "resourcesTitle": "Resources",
     "resourcesLinks": [
-      { "name": "Official ESCO", "href": "https://esco.ec.europa.eu/es" },
-      { "name": "Skills and Competences", "href": "https://ec.europa.eu/esco/portal/skill" },
-      { "name": "Occupations", "href": "https://ec.europa.eu/esco/portal/occupation" }
+      {
+        "name": "Official ESCO",
+        "href": "https://esco.ec.europa.eu/es"
+      },
+      {
+        "name": "Skills and Competences",
+        "href": "https://ec.europa.eu/esco/portal/skill"
+      },
+      {
+        "name": "Occupations",
+        "href": "https://ec.europa.eu/esco/portal/occupation"
+      }
     ],
     "legalTitle": "Legal",
     "legalLinks": [
-      { "name": "Privacy Policy", "href": "/privacy" },
-      { "name": "Terms and Conditions", "href": "/terms" },
-      { "name": "Cookie Policy", "href": "/cookies" }
+      {
+        "name": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "name": "Terms and Conditions",
+        "href": "/terms"
+      },
+      {
+        "name": "Cookie Policy",
+        "href": "/cookies"
+      }
     ],
     "copyright": "ESCO for everyone. All rights reserved."
   }

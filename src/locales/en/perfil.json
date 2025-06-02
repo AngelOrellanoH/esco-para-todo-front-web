@@ -1,0 +1,43 @@
+{
+  "profile": {
+    "competencies": {
+      "title": "Competencies",
+      "add_button": "Add Competency",
+      "no_registered": "No competencies registered.",
+      "modal": {
+        "title": "Add Competencies",
+        "search_placeholder": "Search competency by name",
+        "filter_placeholder": "Filter by type",
+        "save_button": "Save",
+        "no_competencies_found": "No competencies found.",
+        "success_message": "Competencies added successfully.",
+        "error_loading": "Error loading competencies.",
+        "error_adding": "Error adding competencies."
+      }
+    },
+    "requests": {
+      "title": "Requests to ESCO-GPT",
+      "no_history": "No history available.",
+      "model": "Model",
+      "results": "Results",
+      "time": "Time",
+      "avg_distance": "Avg. Distance"
+    },
+    "forums": {
+      "title": "Subscribed Forums",
+      "no_subscribed": "You are not subscribed to any forum yet.",
+      "last_update": "Last update"
+    },
+    "general": {
+      "email_label": "Email",
+      "role_label": "Role",
+      "loading_user_data": "Loading user data...",
+      "unknown_error": "Unknown error",
+      "error_updating_profile": "Error updating profile:"
+    }
+  },
+  "roles": {
+    "administrador": "Administrator",
+    "usuario": "User"
+  }
+}

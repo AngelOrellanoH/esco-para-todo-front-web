@@ -8,7 +8,8 @@
     "register": "Registrarse",
     "logout": "Cerrar sesión",
     "user": "Usuario",
-    "edit_profile": "Editar Perfil"
+    "edit_profile": "Editar Perfil",
+     "view_profile": "Ver Perfil"
   },
   "language": {
     "es_short": "ES",
