@@ -1,3 +1,4 @@
+// src/components/LoginForm.jsx 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -28,7 +29,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    setError(null); // Limpiar errores anteriores
     console.log("Login attempt with:", { email, password });
 
     try {
@@ -37,7 +38,7 @@ const LoginForm = () => {
       navigate("/", { replace: true });
     } catch (err) {
       console.error("Error en el componente LoginForm:", err.message);
-      setError(err.message || t('loginForm.invalidCredentials'));
+      setError(err.message || t('loginForm.genericLoginError'));
     } finally {
       setLoading(false);
     }
@@ -84,6 +85,7 @@ const LoginForm = () => {
               required
             />
           </div>
+          {/* Mostrar el error dinámicamente */}
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <Button type="submit" className="w-full">
             {t('loginForm.loginButton')}

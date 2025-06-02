@@ -10,6 +10,7 @@
     "loginButton": "Entrar",
     "noAccountPrompt": "¿No tienes una cuenta?",
     "createAccountLink": "Crear cuenta",
-    "loadingMessage": "Iniciando sesión..."
+    "loadingMessage": "Iniciando sesión...",
+    "genericLoginError": "Error al iniciar sesión. Por favor, inténtalo de nuevo."
   }
 }

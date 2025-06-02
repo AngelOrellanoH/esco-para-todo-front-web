@@ -1,9 +1,11 @@
-const API_URL = "/api/competencias";
+// src/services/CompetenciaService.js
+import { API_BASE_URL } from '../config'; 
 import { AuthService } from "./auth-service";
 
 export const CompetenciaService = {
   async obtenerTodas() {
-    const response = await fetch(`${API_URL}`);
+
+    const response = await fetch(`${API_BASE_URL}/competencias`); 
     if (!response.ok) {
       throw new Error("Error al obtener competencias");
     }
@@ -13,7 +15,8 @@ export const CompetenciaService = {
   asignarCompetencias: async (idsCompetencias) => {
     const token = AuthService.getToken();
 
-    const response = await fetch(`${API_URL}/asignar`, {
+ 
+    const response = await fetch(`${API_BASE_URL}/competencias/asignar`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

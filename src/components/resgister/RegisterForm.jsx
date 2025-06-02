@@ -1,22 +1,18 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+// src/components/RegisterForm.jsx (MODIFICADO)
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { AuthService } from "@/services/auth-service" 
+import { AuthService } from "@/services/auth-service";
 import { useTranslation } from "react-i18next";
-
+import { IonLoading } from "@ionic/react"; 
 
 const RegisterForm = () => {
     const { t } = useTranslation('register');
-    const navigate = useNavigate()
-
-    const [isCorrectPassword, setIsCorrectPassword] = useState(null)
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    const [isSubmitted, setIsSubmitted] = useState(false)
-    const [error, setError] = useState(null)
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -24,51 +20,57 @@ const RegisterForm = () => {
         email: "",
         password: "",
         confirmPassword: "",
-    })
+    });
+
+    const [error, setError] = useState(null); 
+    const [successMessage, setSuccessMessage] = useState(null); 
+    const [loading, setLoading] = useState(false); 
 
     const handleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
-        })
-        if(name === "password" || name === "confirmPassword"){
-            setIsCorrectPassword(null)
+        });
+        if (name === "password" || name === "confirmPassword") {
+            setError(null);
         }
-    }
+    };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setIsSubmitting(true)
-        if(formData.password === formData.confirmPassword){
-            setIsCorrectPassword(true)
-            try{
-                const user = {
-                    nombre: `${formData.firstName} ${formData.lastName}`,
-                    email: formData.email,
-                    password: formData.password,
-                    rol: "USER"
-                }
-              
-                await AuthService.register(user) 
-                setIsSubmitted(true)
-                setError(false)
-                setTimeout(() => {
-                    navigate("/login"); // Redirige a la página de login
-                }, 1500); // 1.5 segundos de retraso
-            }catch(error){
-                console.error('Error al registrar al usuario:', error)
-                setIsSubmitted(false)
-                setError(true)
-            }finally{
-                setIsSubmitting(false)
-            }
-        }else{
-            setIsCorrectPassword(false)
-            setIsSubmitting(false)
+        e.preventDefault();
+        setLoading(true);
+        setError(null);         // Limpiar errores anteriores
+        setSuccessMessage(null); // Limpiar mensajes de éxito anteriores
+
+        if (formData.password !== formData.confirmPassword) {
+            setError(t('registerForm.passwordMismatch')); // Error de validación del cliente
+            setLoading(false);
+            return; 
         }
 
-    }
+        try {
+            const user = {
+                nombre: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+                password: formData.password,
+                rol: "USER"
+            };
+
+            await AuthService.register(user);
+
+            setSuccessMessage(t('registerForm.registrationSuccess')); 
+            setTimeout(() => {
+                navigate("/login");
+            }, 1500);
+
+        } catch (err) {
+            console.error('Error en el componente RegisterForm:', err.message);
+            setError(err.message || t('registerForm.genericRegistrationError')); 
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <Card className="w-full max-w-md !border !bg-white dark:!bg-gray-900 dark:!text-white">
@@ -123,25 +125,21 @@ const RegisterForm = () => {
                     </div>
 
                     <Button type="submit"
-                        disabled={isSubmitting}
+                        disabled={loading} // Deshabilitar el botón si está cargando
                         className="w-full py-6 !bg-blue-600 hover:!bg-blue-700 !text-white font-semibold"
                     >
-                        {isSubmitting ? t('registerForm.registeringButton') : t('registerForm.registerButton')}
+                        {loading ? t('registerForm.registeringButton') : t('registerForm.registerButton')}
                     </Button>
                 </form>
+                {/* Mostrar el mensaje de error o éxito */}
                 {error && (
-                    <p className="text-red-500 text-center text-sm">
-                        {t('registerForm.errorGeneric')}
+                    <p className="text-red-500 text-center text-sm mt-4">
+                        {error}
                     </p>
                 )}
-                {isCorrectPassword === false && (
-                    <p className="text-red-500 text-center text-sm">
-                        {t('registerForm.passwordMismatch')}
-                    </p>
-                )}
-                {isSubmitted && (
-                    <p className="text-green-600 text-center text-sm">
-                        {t('registerForm.registrationSuccess')}
+                {successMessage && (
+                    <p className="text-green-600 text-center text-sm mt-4">
+                        {successMessage}
                     </p>
                 )}
             </CardContent>
@@ -156,8 +154,13 @@ const RegisterForm = () => {
                     </span>
                 </div>
             </CardFooter>
+            <IonLoading
+                isOpen={loading}
+                message={t('registerForm.loadingMessage')}
+                duration={0}
+            />
         </Card>
-    )
-}
+    );
+};
 
 export default RegisterForm;
