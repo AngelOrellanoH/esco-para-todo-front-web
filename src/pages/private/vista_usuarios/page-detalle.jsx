@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import UsuarioResumenView from "@/components/perfil/UsuarioResumenView";
 import { DatosService } from "@/services/datos-service";
+import SideBar from "@/components/sideBar";
 
 const UsuarioVista = () => {
   const { id } = useParams();
@@ -32,11 +33,19 @@ const UsuarioVista = () => {
     <IonPage>
       <IonContent fullscreen>
         <Header />
-        <div className="ion-padding">
-          {cargando && <IonText>Cargando usuario...</IonText>}
-          {error && <IonText color="danger">{error}</IonText>}
-          {usuario && <UsuarioResumenView usuario={usuario} />}
+
+
+        <div className="flex flex-col md:flex-row flex-1 min-h-[calc(100vh-120px)]">   
+          <SideBar />
+            
+          <div className="flex-1 ion-padding overflow-auto">
+            {cargando && <IonText>Cargando usuario...</IonText>}
+            {error && <IonText color="danger">{error}</IonText>}
+            {usuario && <UsuarioResumenView usuario={usuario} />}
+          </div>
         </div>
+
+        
         <Footer />
       </IonContent>
     </IonPage>

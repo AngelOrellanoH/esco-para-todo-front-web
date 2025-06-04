@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import PerfilView from "@/components/perfil/PerfilView";
 import { DatosService } from "@/services/datos-service";
 import { useTranslation } from "react-i18next"; 
+import SideBar from "@/components/sideBar";
 
 const Perfil = () => {
   const { t } = useTranslation('profile'); 
@@ -30,13 +31,19 @@ const Perfil = () => {
     <IonPage>
       <IonContent fullscreen>
         <Header />
-        <div className="ion-padding">
-          {error && <IonText color="danger">{error}</IonText>}
-          {!usuario && !error && (
-            <IonText>{t("profile.general.loading_user_data")}</IonText> 
-          )}
-          {usuario && <PerfilView usuario={usuario} recargarDatosUsuario={fetchUsuarioActualizado} />}
+
+        <div className="flex flex-col md:flex-row flex-1 min-h-[calc(100vh-120px)]">   
+          <SideBar />
+
+          <div className="flex-1 ion-padding overflow-auto">
+            {error && <IonText color="danger">{error}</IonText>}
+            {!usuario && !error && (
+              <IonText>{t("profile.general.loading_user_data")}</IonText> 
+            )}
+            {usuario && <PerfilView usuario={usuario} recargarDatosUsuario={fetchUsuarioActualizado} />}
+          </div>
         </div>
+
         <Footer />
       </IonContent>
     </IonPage>

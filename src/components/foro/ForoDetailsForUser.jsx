@@ -21,7 +21,7 @@ import ChatStatus from "./ChatStatus";
 import MessagesList from "./MessagesList";
 import ChatInput from "./ChatInput";
 
-const ForoDetails = () => {
+const ForoDetailsForUser = () => {
   const { t } = useTranslation("foros");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -155,59 +155,46 @@ const ForoDetails = () => {
   // Estados de carga / error antes de renderizar el contenido
   if (!foro && !loadingInitialData && !error) {
     return (
-      <IonPage>
-        <IonContent fullscreen>
-          <Header />
-          <div className="container mx-auto px-4 py-8 text-center">
+      
+        <div className="container mx-auto px-4 py-8 text-center">
             <h1 className="text-2xl font-bold mb-4">
-              {t("details.notFound.title")}
+                {t("details.notFound.title")}
             </h1>
             <p className="mb-4">{t("details.notFound.message")}</p>
             <Link to="/foro">
-              <IonButton>{t("details.notFound.button")}</IonButton>
+                <IonButton>{t("details.notFound.button")}</IonButton>
             </Link>
-          </div>
-          <Footer />
-        </IonContent>
-      </IonPage>
+        </div>
     );
   }
 
   if (loadingInitialData) {
     return (
-      <IonPage>
-        <IonContent fullscreen className="ion-text-center ion-padding-top">
-          <IonSpinner name="lines-small" />
-          <p>{t("details.loading")}</p>
-        </IonContent>
-      </IonPage>
+        <>
+            <IonSpinner name="lines-small" />
+            <p>{t("details.loading")}</p>
+        </>
     );
   }
 
   if (error) {
     return (
-      <IonPage>
-        <IonContent fullscreen>
-          <Header />
-          <div className="text-center py-4 text-red-600">
+      
+        <div className="text-center py-4 text-red-600">
             <p>
-              {t("details.error.prefix")} {error}
+                {t("details.error.prefix")} {error}
             </p>
             <Link to="/foro">
-              <IonButton>{t("details.error.button")}</IonButton>
+                <IonButton>{t("details.error.button")}</IonButton>
             </Link>
-          </div>
-          <Footer />
-        </IonContent>
-      </IonPage>
+        </div>
+          
     );
   }
 
   // Render cuando ya tenemos el foro y los mensajes
   return (
-    <IonPage>
-      <IonContent fullscreen className="ion-padding">
-        <Header />
+    <>
 
         <div className="container mx-auto px-4 py-8">
           {/* Encabezado del foro */}
@@ -248,10 +235,8 @@ const ForoDetails = () => {
           position="top"
         />
 
-        <Footer />
-      </IonContent>
-    </IonPage>
+    </>
   );
 };
 
-export default ForoDetails;
+export default ForoDetailsForUser;

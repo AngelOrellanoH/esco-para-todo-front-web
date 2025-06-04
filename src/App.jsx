@@ -1,6 +1,5 @@
 import { IonApp } from '@ionic/react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 
 // --- Componentes de V0.4 ---
@@ -12,9 +11,19 @@ import Login from './pages/public/login/page'
 import Register from './pages/public/register/page'
 import MainLayout from './layouts/mainLayout'
 import ForoDetails from './components/foro/ForoDetails'
-import Perfil from './pages/public/perfil/page'
-import Usuarios from './pages/public/vista_usuarios/page'
-import UsuarioVista from './pages/public/vista_usuarios/page-detalle'
+import Perfil from './pages/private/perfil/page'
+import Usuarios from './pages/private/vista_usuarios/page'
+import UsuarioVista from './pages/private/vista_usuarios/page-detalle'
+import RedirectIfAuthenticated from './routes/redirectAuthenticate'
+import ProtectedRoute from './routes/protectedRoute'
+import Analitica from './pages/private/analitica/page'
+import Competencias from './pages/private/competencias/page'
+import Ocupaciones from './pages/private/ocupaciones/page'
+import ForoUser from './pages/private/foro/page'
+import BuscadorEsco from './pages/private/buscadorEsco/page'
+import OcupacionDetalle from './components/ocupaciones/OcupacionDetalle'
+import ForoUserDetails from './components/foro/foroUserDetails'
+import CrearForoPage from './pages/private/foro/crear/page'
 // Configuración del router de react-router-dom v6
 const router = createBrowserRouter([
   {
@@ -26,12 +35,26 @@ const router = createBrowserRouter([
       { path: '/foro', element: <Foro /> },
       { path: '/foro/:id', element: <ForoDetails /> },
       { path: '/contact', element: <Contact /> },
-      { path: '/login', element: <Login /> },
-      { path: '/register', element: <Register /> },
-      { path: '/perfil', element: <Perfil /> },
-      { path: '/usuarios', element: <Usuarios />},
-      { path: '/usuarios/:id', element: <UsuarioVista /> },
-      {}
+      { path: '/login', element: <RedirectIfAuthenticated><Login /></RedirectIfAuthenticated> },
+      { path: '/register', element: <RedirectIfAuthenticated><Register /></RedirectIfAuthenticated> },
+
+      // Rutas protegidas
+      {
+        element: <ProtectedRoute />,
+        children: [
+          { path: '/perfil', element: <Perfil /> },
+          { path: '/usuarios', element: <Usuarios /> },
+          { path: '/usuarios/:id', element: <UsuarioVista /> },
+          { path: '/estadisticas', element: <Analitica /> },
+          { path: '/usuario/competencias', element: <Competencias /> },
+          { path: '/usuario/ocupaciones', element: <Ocupaciones /> },
+          { path: '/usuario/ocupaciones/:id', element: <OcupacionDetalle /> },
+          { path: '/usuario/foro', element: <ForoUser /> },
+          { path: '/usuario/foro/:id', element: <ForoUserDetails /> },
+          { path: '/usuario/foro/crear', element: <CrearForoPage /> },
+          { path: '/usuario/buscador', element: <BuscadorEsco /> },
+        ],
+      },
     ],
   },
 ])

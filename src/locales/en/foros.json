@@ -2,28 +2,54 @@
   "details": {
     "notFound": {
       "title": "Topic Not Found",
-      "message": "The topic you are looking for does not exist or has been deleted.",
-      "button": "Back to Forum"
+      "message": "The topic you’re looking for doesn’t exist or has been deleted.",
+      "button": "Back to forums"
     },
     "loading": "Loading...",
     "error": {
       "prefix": "Error:",
-      "button": "Back to Forum"
+      "button": "Back to forums"
     },
-    "backButton": "Back to forum",
+    "backButton": "Back to forums",
     "authorPrefix": "By",
-    "defaultAuthor": "DEFAULT AUTHOR",
-    "messageCountSuffix": "{{count}}",
+    "defaultAuthor": "Acuario Community",
+    "messageCountSuffix": "{{count}} messages",
     "topicAuthor": "Topic Author",
-    "repliesTitle": "Replies ({{count}})"
+    "repliesTitle": "Replies ({{count}})",
+    "chat": {
+      "connecting_chat": "Connecting to chat...",
+      "connected": "Chat connected.",
+      "connectionError": "Chat connection error",
+      "noMessages": "Be the first to post a message.",
+      "messagePlaceholder": "Type your message here...",
+      "sendButton": "Send",
+      "notConnectedError": "You are not connected to the chat. Please try again.",
+      "loginToParticipate": "Log in to participate in the chat.",
+      "loginLink": "Log in"
+    }
   },
-   "titles": {
+  "titles": {
+    "pageTitle": "Forums",
     "cardTitle": "Forum Topics",
-    "cardDescription": "Explore recent community conversations.",
+    "cardDescription": "Browse recent community conversations.",
     "authorPrefix": "By",
-    "defaultAuthor": "DEFAULT AUTHOR",
-    "defaultMessageCount": "10 (DEFAULT NUMBER)",
+    "defaultAuthor": "Acuario Community",
+    "defaultMessageCount": "0 messages",
     "noForums": "No Forums Created",
-    "loadingError": "Error loading forums:"
+    "loadingError": "Error loading forums:",
+    "createForoButton": "Create Forum"
+  },
+  "create": {
+    "title": "Create New Forum",
+    "pageTitle": "Create New Forum",
+    "description": "Create a new discussion topic for the community.",
+    "tituloLabel": "Forum Title",
+    "tituloPlaceholder": "Ex: Questions about Freshwater Aquariums",
+    "descripcionLabel": "Description",
+    "descripcionPlaceholder": "Describe the purpose of your forum...",
+    "submitButton": "Create Forum",
+    "validationError": "Please fill in both title and description.",
+    "success": "Forum successfully created.",
+    "error": "Error creating forum:"
   }
 }

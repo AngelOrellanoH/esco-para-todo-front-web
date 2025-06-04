@@ -12,18 +12,44 @@
     },
     "backButton": "Volver al foro",
     "authorPrefix": "Por",
-    "defaultAuthor": "AUTOR POR DEFECTO",
-    "messageCountSuffix": "{{count}}",
+    "defaultAuthor": "Comunidad Acuario",
+    "messageCountSuffix": "{{count}} mensajes",
     "topicAuthor": "Autor del tema",
-    "repliesTitle": "Respuestas ({{count}})"
+    "repliesTitle": "Respuestas ({{count}})",
+    "chat": {
+      "connecting_chat": "Conectando al chat...",
+      "connected": "Chat conectado.",
+      "connectionError": "Error de conexión al chat",
+      "noMessages": "Sé el primero en enviar un mensaje.",
+      "messagePlaceholder": "Escribe tu mensaje aquí...",
+      "sendButton": "Enviar",
+      "notConnectedError": "No estás conectado al chat. Inténtalo de nuevo.",
+      "loginToParticipate": "Inicia sesión para participar en el chat.",
+      "loginLink": "Iniciar sesión"
+    }
   },
   "titles": {
+    "pageTitle": "Foros",
     "cardTitle": "Temas del foro",
     "cardDescription": "Explora las conversaciones recientes de la comunidad.",
     "authorPrefix": "Por",
-    "defaultAuthor": "AUTOR POR DEFECTO",
-    "defaultMessageCount": "10 (NÚMERO POR DEFECTO)",
+    "defaultAuthor": "Comunidad Acuario",
+    "defaultMessageCount": "0 mensajes",
     "noForums": "No hay Foros Creados",
-    "loadingError": "Error al cargar los foros:"
+    "loadingError": "Error al cargar los foros:",
+    "createForoButton": "Crear Foro"
+  },
+  "create": {
+    "title": "Crear Nuevo Foro",
+    "pageTitle": "Crear Nuevo Foro",
+    "description": "Crea un nuevo tema de discusión para la comunidad.",
+    "tituloLabel": "Título del Foro",
+    "tituloPlaceholder": "Ej: Preguntas sobre Acuarios de Agua Dulce",
+    "descripcionLabel": "Descripción",
+    "descripcionPlaceholder": "Describe el propósito de tu foro...",
+    "submitButton": "Crear Foro",
+    "validationError": "Por favor, completa todos los campos (título y descripción).",
+    "success": "Foro creado con éxito.",
+    "error": "Error al crear el foro:"
   }
 }

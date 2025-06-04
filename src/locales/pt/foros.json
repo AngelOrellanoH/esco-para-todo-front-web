@@ -2,28 +2,54 @@
   "details": {
     "notFound": {
       "title": "Tópico não encontrado",
-      "message": "O tópico que você está procurando não existe ou foi excluído.",
-      "button": "Voltar para o fórum"
+      "message": "O tópico que você procura não existe ou foi excluído.",
+      "button": "Voltar aos fóruns"
     },
     "loading": "Carregando...",
     "error": {
       "prefix": "Erro:",
-      "button": "Voltar para o fórum"
+      "button": "Voltar aos fóruns"
     },
-    "backButton": "Voltar para o fórum",
+    "backButton": "Voltar aos fóruns",
     "authorPrefix": "Por",
-    "defaultAuthor": "AUTOR PADRÃO",
-    "messageCountSuffix": "{{count}}",
+    "defaultAuthor": "Comunidade Acuario",
+    "messageCountSuffix": "{{count}} mensagens",
     "topicAuthor": "Autor do tópico",
-    "repliesTitle": "Respostas ({{count}})"
+    "repliesTitle": "Respostas ({{count}})",
+    "chat": {
+      "connecting_chat": "Conectando ao chat...",
+      "connected": "Chat conectado.",
+      "connectionError": "Erro de conexão ao chat",
+      "noMessages": "Seja o primeiro a enviar uma mensagem.",
+      "messagePlaceholder": "Digite sua mensagem aqui...",
+      "sendButton": "Enviar",
+      "notConnectedError": "Você não está conectado ao chat. Tente novamente.",
+      "loginToParticipate": "Faça login para participar do chat.",
+      "loginLink": "Fazer login"
+    }
   },
   "titles": {
-    "cardTitle": "Tópicos do fórum",
-    "cardDescription": "Explore as conversas recentes da comunidade.",
+    "pageTitle": "Fóruns",
+    "cardTitle": "Tópicos do Fórum",
+    "cardDescription": "Explore conversas recentes da comunidade.",
     "authorPrefix": "Por",
-    "defaultAuthor": "AUTOR PADRÃO",
-    "defaultMessageCount": "10 (NÚMERO PADRÃO)",
+    "defaultAuthor": "Comunidade Acuario",
+    "defaultMessageCount": "0 mensagens",
     "noForums": "Nenhum Fórum Criado",
-    "loadingError": "Erro ao carregar os fóruns:"
+    "loadingError": "Erro ao carregar fóruns:",
+    "createForoButton": "Criar Fórum"
+  },
+  "create": {
+    "title": "Criar Novo Fórum",
+    "pageTitle": "Criar Novo Fórum",
+    "description": "Crie um novo tópico de discussão para a comunidade.",
+    "tituloLabel": "Título do Fórum",
+    "tituloPlaceholder": "Ex: Dúvidas sobre Aquários de Água Doce",
+    "descripcionLabel": "Descrição",
+    "descripcionPlaceholder": "Descreva o propósito do seu fórum...",
+    "submitButton": "Criar Fórum",
+    "validationError": "Por favor, preencha título e descrição.",
+    "success": "Fórum criado com sucesso.",
+    "error": "Erro ao criar fórum:"
   }
 }

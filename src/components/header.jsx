@@ -1,3 +1,4 @@
+// src/components/header.jsx
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -14,6 +15,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  // Detectamos si el usuario tiene rol de "ADMIN"
+  // Ajusta esto según tu esquema de roles (user.roles, user.role, etc.)
+  const isAdmin = isAuthenticated && Array.isArray(user?.roles)
+    ? user.roles.includes("ADMIN")
+    : user?.role === "ADMIN";
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -38,7 +45,7 @@ const Header = () => {
 
   return (
     <>
-      <IonHeader className="!bg-white dark:!bg-gray-950 shadow-sm">
+      <IonHeader className="!bg-white dark:!bg-gray-950 shadow-sm md:!z-50">
         <IonToolbar>
           <div className="container mx-auto px-4 w-full">
             <div className="flex h-16 items-center justify-between">
@@ -46,6 +53,7 @@ const Header = () => {
                 <img src={logo} alt="ESCO para todos" className="h-10 w-auto" />
               </NavLink>
 
+              {/* Navegación Desktop */}
               <nav className="hidden md:flex items-center space-x-6">
                 {navigation.map((item) => (
                   <NavLink
@@ -53,19 +61,25 @@ const Header = () => {
                     to={item.href}
                     className={({ isActive }) =>
                       `text-sm font-medium transition-colors hover:!text-blue-600 ${
-                        isActive ? "!text-blue-600" : "!text-gray-700 dark:!text-gray-300"
+                        isActive
+                          ? "!text-blue-600"
+                          : "!text-gray-700 dark:!text-gray-300"
                       }`
                     }
                   >
                     {item.name}
                   </NavLink>
                 ))}
-                {isAuthenticated && (
+
+                {/* Si es Admin, mostramos el enlace a /usuarios */}
+                {isAdmin && (
                   <NavLink
                     to="/usuarios"
                     className={({ isActive }) =>
                       `text-sm font-medium transition-colors hover:!text-blue-600 ${
-                        isActive ? "!text-blue-600" : "!text-gray-700 dark:!text-gray-300"
+                        isActive
+                          ? "!text-blue-600"
+                          : "!text-gray-700 dark:!text-gray-300"
                       }`
                     }
                   >
@@ -74,6 +88,7 @@ const Header = () => {
                 )}
               </nav>
 
+              {/* Botones / Perfil Desktop */}
               <div className="hidden md:flex items-center space-x-3 relative">
                 <LanguageSelector onLanguageChange={changeLanguage} />
 
@@ -93,18 +108,11 @@ const Header = () => {
                     </NavLink>
                   </>
                 ) : (
-                  <>
-                    <NavLink
-                      to="/perfil"
-                      className="text-sm border border-gray-300 px-3 py-1.5 rounded dark:text-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    >
-                      {t("nav.edit_profile")}
-                    </NavLink>
-                    <UserDropdown user={user} onLogout={handleLogout} />
-                  </>
+                  <UserDropdown user={user} onLogout={handleLogout} />
                 )}
               </div>
 
+              {/* Toggle Mobile */}
               <div className="md:hidden">
                 <button
                   type="button"
@@ -124,6 +132,7 @@ const Header = () => {
         </IonToolbar>
       </IonHeader>
 
+      {/* Menú Mobile */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-950 shadow-md z-50 relative">
           <div className="space-y-1 px-4 pb-4 pt-2">
@@ -142,11 +151,18 @@ const Header = () => {
               </NavLink>
             ))}
 
-            {isAuthenticated && (
-              <NavLink to="/usuarios" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full border border-gray-300 px-4 py-2 text-sm rounded dark:border-gray-600 dark:hover:bg-gray-800">
-                  {t("nav.users")}
-                </button>
+            {/* Si es Admin, mostramos el botón a /usuarios */}
+            {isAdmin && (
+              <NavLink
+                to="/usuarios"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-base font-medium ${
+                  pathname === "/usuarios"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-blue-600 dark:text-gray-300 dark:hover:bg-gray-800"
+                }`}
+              >
+                {t("nav.usuarios")}
               </NavLink>
             )}
 

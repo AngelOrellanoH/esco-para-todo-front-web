@@ -1,3 +1,5 @@
+// src/pages/public/foro/page.jsx
+
 import Footer from "@/components/footer"
 import ForoTitles from "@/components/foro/ForoTitles"
 import Header from "@/components/header"
